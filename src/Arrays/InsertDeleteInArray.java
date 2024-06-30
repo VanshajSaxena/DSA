@@ -1,7 +1,7 @@
 /**
  * insertInArray
  */
-public class insertDeleteInArray {
+public class InsertDeleteInArray {
 
   // `arr` is the array to which the element is to be added
   // `n` is the number of elements in the array
