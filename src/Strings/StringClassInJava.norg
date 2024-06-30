@@ -53,6 +53,34 @@
    @end
    The `==` operator returns `false` because `str3` and `str4` refer to different objects in the heap.
 
+** String by Constructors
+
+   - It is also possible to create strings by decoding byte array. The platforms default character set is used to decode the byte array.
+   @code java
+   byte[] b_arr = {71, 101, 101, 107, 115};
+   String s_byte = new String(b_arr);
+   @end
+   - Construct a new String by decoding the byte array. It uses the char_set for decoding.
+   @code java
+   byte[] b_arr = {71, 101, 101, 107, 115};
+   String s_byte = String(b_arr, Charset.defaultCharset());
+   @end
+   - Construct a new String by decoding the char array. It uses the char_set for decoding.
+   @code java
+   char[] char_arr = {'V', 'a', 'n', 's', 'h', 'a', 'j'};
+   String s_char = String(char_arr);
+   @end
+   - Allocates a new string from the string in s_buffer.
+   @code java
+   StringBuffer s_buffer = new StringBuffer("Vanshaj");
+   String s_sbf = String(s_buffer);
+   @end
+   - Allocates a new string from the string in s_builder.
+   @code java
+   StringBuffer s_builder = new StringBuilder("Vanshaj");
+   String s_sbu = String(s_builder);
+   @end
+
 ** Summary
 
    - Use string literals when you want to leverage the string pool for memory efficiency and performance.
