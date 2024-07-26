@@ -9,8 +9,8 @@ public class StringOperations {
   }
 
   static void modifyChar(String str, String ch, int idx) {
-    String s1 = str.substring(0, idx - 1);
-    String s2 = str.substring(idx);
+    String s1 = str.substring(0, idx);
+    String s2 = str.substring(idx + 1);
     String modString = s1 + ch + s2;
     System.out.println(modString);
   }
@@ -45,7 +45,7 @@ public class StringOperations {
 
     insertAtIndex(str, ch, idx); // Vanshaj_Saxena
 
-    modifyChar(str, ch, idx); // Vansha_Saxena
+    modifyChar(str, ch, idx); // Vanshaj_axena
 
     deleteChar(char_arr, 'n'); // VashajSaxea
   }

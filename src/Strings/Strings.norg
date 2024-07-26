@@ -1,6 +1,6 @@
 * What is a String
 
-  String is considered a data type in general and is typically represented as arrays of bytes (or words) that store a sequence of characters. String is defined as an array of characters. The difference between a character array and a string is the string is terminated with a special character ‘\0’.
+  String is considered a data type in general and is typically represented as arrays of bytes (or words) that store a sequence of characters. String is defined as an array of characters. The difference between a character array and a string is the string is terminated with a special character ‘\\0’.
 
 ** String Operations
 

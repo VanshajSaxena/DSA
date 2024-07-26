@@ -1,5 +1,5 @@
 /**
- * insertInArray
+ * insertDeleteInArray
  */
 public class InsertDeleteInArray {
 
@@ -11,7 +11,7 @@ public class InsertDeleteInArray {
     if (n >= capacity) {
       return n;
     }
-    arr[n] = key;
+    arr[n] = key; // arr[n] represents the first empty space in the array
     return n + 1;
   }
 
@@ -72,13 +72,11 @@ public class InsertDeleteInArray {
     int result = insertAtTheEnd(arr, 5, 99, capacity);
     for (int i = 0; i < arr.length; i++) {
       System.out.println("index: " + i + " value: " + arr[i]);
-      if (i == arr.length - 1) {
-        System.out.println();
-      }
     }
+    System.out.println();
 
     System.out.println("Length of array: " + arr.length);
-    System.out.println("Number of elements after insertion: " + result);
+    System.out.println("Number of elements after insertion: " + result + "\n");
 
     System.out.println("Adding element at the specified position...");
     insertAtPosition(arr, 5, 98, 2);
