@@ -1,0 +1,11 @@
+* *Types of Linked List*
+
+  - *Singly Linked List:* It is the simplest type of linked list in which every node contains some data and pointer to the next node of the same data type.
+  - *Doubly Linked List:* A doubly linked list or a two-way linked list is a more complex type of linked list that contains a pointer to the next as well as the previous node in sequence.
+    Heres a simple representation of a doubly linked list:
+
+  @code markdown
+  HEAD -> [PREV|DATA|NEXT] <-> [PREV|DATA|NEXT] <-> [PREV|DATA|NEXT] -> TAIL [NULL]
+  @end
+
+  - *Circular Linked List:* A circular linked list is that in which the last node contains the pointer to the first node of the list.
