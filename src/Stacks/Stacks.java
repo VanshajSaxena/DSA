@@ -8,6 +8,10 @@ public class Stacks {
     Stack<String> stack = new Stack<String>();
 
     stack.push("newItem");
-    System.out.println(stack.isEmpty());
+    stack.peek();
+    String x = stack.pop();
+    System.out.println(x); // newItem
+    System.out.println(stack.isEmpty()); // true
+
   }
 }
