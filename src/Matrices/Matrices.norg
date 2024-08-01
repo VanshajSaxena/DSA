@@ -1,0 +1,15 @@
+* *Matrix Data Structure*
+
+  *Matrix Data Structure* is a two-dimensional array arranged in rows and columns.
+  It is commonly used to represent mathematical matrices and is fundamental in various fields of computer science and mathematics.
+
+** *Components of a Matrix Data Structure*
+   - *Size:* The number of rows and columns in the matrix.
+   - *Element:* A matrix's row and column indices serve to identify each entry in the matrix, which is referred to as an element.
+   - *Operations:* Matrix operations include addition, subtraction, multiplication, and transposition.
+   - *Determinant:* A scalar value that can be calculated from a square matrix and encodes certain properties of the matrix.
+   - *Inverse:* A matrix that, when multiplied by the original matrix, results in the identity matrix.
+   - *Transpose:* A matrix obtained by exchanging the rows and columns of the original matrix.
+   - *Rank:* The maximum number of linearly independent rows or columns in a matrix.
+
+
