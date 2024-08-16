@@ -4,7 +4,7 @@
 
    ~ Describes the performance of an algorithm as the amount of data increases.
    ~ Machine Independent. (Number of steps to completion.)
-   ~ Ignore smaller operations. O(n+1) -> O(n)
+   ~ Ignore smaller operations. `O(n+1) -> O(n)`
 
 *** O(1) - Constant Time
     - The number of steps does not change with the amount of data.
