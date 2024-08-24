@@ -21,11 +21,11 @@
 
 ** *Here is a simple representation of a linked list:*
 
-   HEAD -> [Data|Next] -> [Data|Next] -> [Data|Next] -> TAIL [NULL]
+   HEAD -> [Data|Next] -> [Data|Next] -> [Data|NULL] -> TAIL
 
    - *Node:* A single element of a linked list that stores data and a reference to the next node in the list.
    - *Head:* A reference to the first node in the list.
-   - *Tail:* A reference to the last node in the list.
+   - *Tail:* A reference to the last node in the list, which usually points to `NULL` indicating to the end of the list.
 
 ** *Characteristics of Linked List:*
 
@@ -40,3 +40,11 @@
    - *Insertion:* Adding a new node at a specific position in the list.
    - *Deletion:* Removing a node from the list.
    - *Search:* Finding a node with a specific value in the list.
+
+
+* *LinkedList Class in Java*
+  - `LinkedList` is a class in Java that implements both the `List` and `Queue` interfaces.
+  - The LinkedList class in Java is versatile and can exhibit the behavior of a `List`, a `Queue`, or a `Stack` (as a Deque).
+  - As a `List`, `LinkedList` provides methods to add, remove, and access elements by index.
+  - As a `Queue`, `LinkedList` provides methods to enqueue (add) and dequeue (remove) elements in FIFO order.
+  - Additionally, `LinkedList` can also be used as a `Deque` (double-ended queue), which allows elements to be added or removed from both ends of the collection.
