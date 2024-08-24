@@ -1,0 +1,7 @@
+* Interpolation Search
+
+  - Improved version of binary search, works better than binary search for uniformly distributed arrays
+
+** Complexity:
+   - Time: O(log(log(n))) - O(n)
+   - worse case: O(n) | values increase exponentially
