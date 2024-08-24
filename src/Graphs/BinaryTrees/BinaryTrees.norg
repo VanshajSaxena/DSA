@@ -1,0 +1,16 @@
+* Binary Tree Data Structure
+  A *binary tree* is a hierarchical data structure in computer science where each node has at most two children, referred to as the left child and the right child. Here are some key points about binary trees:
+
+  - *Root*: The topmost node in a binary tree.
+  - *Leaves*: The bottom-most nodes that do not have any children.
+  - *Height*: The number of edges from the root to the farthest leaf.
+  - *Types*: Includes full binary trees, complete binary trees, and perfect binary trees.
+
+  Binary trees are widely used for efficient data storage and retrieval, such as in binary search trees and heaps.
+
+** Types of Binary Trees 
+   - *Full Binary Tree*: A binary tree in which each node has either 0 or 2 children.
+   - *Complete Binary Tree*: A binary tree in which all levels are fully filled except possibly for the lowest level, which is filled from left to right.
+   - *Perfect Binary Tree*: A binary tree in which all internal nodes have exactly two children and all leaves are at the same level.
+   - *Balanced Binary Tree*: A binary tree in which the height of the left and right subtrees of any node differ by at most one.
+   - Degenerate (or pathological) tree: A tree in which each parent node has only one associated child node.
