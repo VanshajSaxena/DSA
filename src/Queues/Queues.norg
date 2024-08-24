@@ -12,3 +12,7 @@
    ~~ *Ascending Priority Queue:* In an ascending priority queue, the element with the lowest priority is removed first.
    ~~ *Descending Priority Queue:* In a descending priority queue, the element with the highest priority is removed first.
    ~ *Circular Queue:* This is a type of queue in which the last element is connected to the first element to form a circle. This allows the elements to be added and removed in a circular manner. FIFO principle is followed in this type of queue.
+
+** Here is a simple representation of Queue Data Structure
+   FRONT -> [Data|Next] -> [Data|Next] -> [Data|NULL] -> REAR
+
