@@ -13,4 +13,4 @@
    - *Complete Binary Tree*: A binary tree in which all levels are fully filled except possibly for the lowest level, which is filled from left to right.
    - *Perfect Binary Tree*: A binary tree in which all internal nodes have exactly two children and all leaves are at the same level.
    - *Balanced Binary Tree*: A binary tree in which the height of the left and right subtrees of any node differ by at most one.
-   - Degenerate (or pathological) tree: A tree in which each parent node has only one associated child node.
+   - *Degenerate (or pathological) tree*: A tree in which each parent node has only one associated child node.
