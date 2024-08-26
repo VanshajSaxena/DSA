@@ -1,0 +1,22 @@
+* Bubble Srot Algorithm
+
+  - Complexity: O(n^2)
+  - Small Data Sets: Fine
+  - Large Data Sets: BAD
+
+@code java
+int array[] = {1,5,8,3,7,9,10,24,6,12,29,81,32,};
+
+  private static void bubbleSort(int[] arr) {
+    for (int i = 0; i < arr.length - 1; i++) {
+      for (int j = 0; j < arr.length - i - 1; j++) {
+        if (arr[j] > arr[j + 1]) {
+          int temp = arr[j];
+          arr[j] = arr[j + 1];
+          arr[j + 1] = temp;
+        }
+      }
+    }
+  }
+@end
+
