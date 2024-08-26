@@ -1,0 +1,7 @@
+* InsertionSort Algotithm
+  - Complexity: O(n^2)
+  - Small Data Set: Decent
+  - Large Data Set: BAD
+
+  Prefered over Bubble sort and Selection sort.
+  The best case is O(n), compared to Selection sort and Bubble sort's O(n^2).
