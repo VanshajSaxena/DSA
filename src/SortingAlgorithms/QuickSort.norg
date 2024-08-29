@@ -1,0 +1,43 @@
+* [Quick Sort Algorithm]{/ QuickSort.java}
+  - Moves smaller elements to the left and larger elements to the right.
+  - Recursively divides the array into two sub-arrays and sorts them.
+** Time complexity:
+   - Best Case: O(n log n) average
+   - Average Case: O(n log n) average
+   - Worst Case: O(n^2) worst case (if the pivot is the smallest or largest element in the array)
+** Space complexity:
+   - O(log n) average ( due to recursion)
+
+   @code java
+   private static void quickSort(int[] array, int start, int end) {
+     if (end <= start)
+     return;
+
+     int pivot = partition(array, start, end);
+     quickSort(array, start, pivot - 1);
+     quickSort(array, pivot + 1, end);
+   }
+
+   private static int partition(int[] array, int start, int end) {
+
+     int pivot = array[end];
+     int i = start - 1;
+
+     for (int j = start; j < end; j++) {
+       if (array[j] < pivot) {
+         i++;
+         int temp = array[i];
+         array[i] = array[j];
+         array[j] = temp;
+       }
+     }
+
+     i++;
+     int temp = array[i];
+     array[i] = array[end];
+     array[end] = temp;
+
+     return i;
+   }
+   @end
+
