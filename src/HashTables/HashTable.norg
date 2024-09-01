@@ -1,0 +1,26 @@
+* [Hash Table Data Structure]{/ HashTable.java}
+  - A data structure that stores unique keys to values. Both are reference data types. ex. `<Integer, String>`
+  - Each key/value pair is known as an Entry.
+  - Fast insertion, lookup, deletion of key/value pairs.
+  - Not ideal for small data sets, great with large data sets.
+
+** Hashing
+   - Takes a key and computes an integer ( formula varies based on key & data type).
+   - In a *Hashtable*, we use the hash % (modulo) capacity to calculate an index number.
+
+   @code java
+   key.hashCode() % capacity = index
+   @end
+
+** Bucket
+   - An indexed storage location for one or more entries.
+   - Can store multiple entries in the case of collision (Similarly as a LinkedList).
+
+** Collision
+   - Hash function generates the same index for more that one key.
+   - less collision = more efficiency.
+
+** Runtime Complexity
+   - Best Case O(1)
+   - Worst Case O(n)
+
