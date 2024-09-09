@@ -1,10 +1,9 @@
 import java.util.ArrayList;
 
 /**
- * AdjacencyMatrix
+ * DepthFirstSearch
  */
-public class AdjacencyMatrix {
-
+public class DepthFirstSearch {
   public static void main(String[] args) {
     Graph graph = new Graph(5);
     graph.addNode(new Node("A"));
@@ -22,7 +21,7 @@ public class AdjacencyMatrix {
     graph.addEdge(4, 0);
 
     graph.print();
-    System.out.println(graph.checkEdge(0, 0));
+    graph.depthFirstSearch(4);
   }
 }
 
@@ -65,6 +64,27 @@ class Graph {
       }
       System.out.println();
     }
+    System.out.println();
+  }
+
+  public void depthFirstSearch(int src) {
+    boolean[] visited = new boolean[matrix.length];
+    dFSHelper(src, visited);
+  }
+
+  private void dFSHelper(int src, boolean[] visited) {
+    if (visited[src]) {
+      return;
+    } else {
+      visited[src] = true;
+      System.out.println(nodes.get(src).data + " = visited");
+    }
+    for (int i = 0; i < matrix[src].length; i++) {
+      if (matrix[src][i] == 1) {
+        dFSHelper(i, visited);
+      }
+    }
+    return;
   }
 }
 
