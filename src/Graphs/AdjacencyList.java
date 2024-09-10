@@ -7,7 +7,7 @@ import java.util.LinkedList;
 public class AdjacencyList {
 
   public static void main(String[] args) {
-    Graph graph = new Graph();
+    AdjacencyListGraph graph = new AdjacencyListGraph();
 
     graph.addNode(new Node("A"));
     graph.addNode(new Node("B"));
@@ -27,10 +27,11 @@ public class AdjacencyList {
   }
 }
 
-class Graph {
+class AdjacencyListGraph extends Graph {
   ArrayList<LinkedList<Node>> alist;
 
-  Graph() {
+  AdjacencyListGraph() {
+    super();
     this.alist = new ArrayList<>();
   }
 
@@ -66,13 +67,5 @@ class Graph {
       }
       System.out.println();
     }
-  }
-}
-
-class Node {
-  String data;
-
-  Node(String data) {
-    this.data = data;
   }
 }

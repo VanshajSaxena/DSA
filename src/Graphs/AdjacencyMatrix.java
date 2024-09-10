@@ -6,7 +6,7 @@ import java.util.ArrayList;
 public class AdjacencyMatrix {
 
   public static void main(String[] args) {
-    Graph graph = new Graph(5);
+    AdjacencyMatrixGraph graph = new AdjacencyMatrixGraph(5);
     graph.addNode(new Node("A"));
     graph.addNode(new Node("B"));
     graph.addNode(new Node("C"));
@@ -26,12 +26,12 @@ public class AdjacencyMatrix {
   }
 }
 
-class Graph {
+class AdjacencyMatrixGraph extends Graph {
 
   ArrayList<Node> nodes;
   int[][] matrix;
 
-  Graph(int size) {
+  AdjacencyMatrixGraph(int size) {
     nodes = new ArrayList<>();
     matrix = new int[size][size];
   }
@@ -65,13 +65,5 @@ class Graph {
       }
       System.out.println();
     }
-  }
-}
-
-class Node {
-  String data;
-
-  Node(String data) {
-    this.data = data;
   }
 }

@@ -5,7 +5,7 @@ import java.util.ArrayList;
  */
 public class DepthFirstSearch {
   public static void main(String[] args) {
-    Graph graph = new Graph(5);
+    DepthFirstSearchGraph graph = new DepthFirstSearchGraph(5);
     graph.addNode(new Node("A"));
     graph.addNode(new Node("B"));
     graph.addNode(new Node("C"));
@@ -25,12 +25,13 @@ public class DepthFirstSearch {
   }
 }
 
-class Graph {
+class DepthFirstSearchGraph extends Graph {
 
   ArrayList<Node> nodes;
   int[][] matrix;
 
-  Graph(int size) {
+  DepthFirstSearchGraph(int size) {
+    super();
     nodes = new ArrayList<>();
     matrix = new int[size][size];
   }
@@ -85,13 +86,5 @@ class Graph {
       }
     }
     return;
-  }
-}
-
-class Node {
-  String data;
-
-  Node(String data) {
-    this.data = data;
   }
 }
