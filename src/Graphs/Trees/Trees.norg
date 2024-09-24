@@ -1,0 +1,16 @@
+* Tree Data Structure
+
+  *Tree:* A non-linear data structure where nodes are organized in a hierarchy.
+
+  Components of a tree:
+  ~ *Root:* The top node in a tree.
+  ~ *Parent:* A node that has children.
+  ~ *Child:* A node that has a parent.
+  ~ *Leaf:* A node with no children.
+  ~ *Siblings:* Nodes with the same parent.
+  ~ *Ancestor:* A node's parent, parent's parent, etc.
+  ~ *Descendant:* A node's children, children's children, etc.
+  ~ *Subtree:* A tree within a tree.
+  ~ *Level:* The height of a node in the tree.
+  ~ *Height:* The number of edges above the farthest leaf node.
+  ~ *Depth:* The number of edges below the root node.

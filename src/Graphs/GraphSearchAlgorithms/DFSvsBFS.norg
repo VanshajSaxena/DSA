@@ -1,0 +1,11 @@
+* Breadth First Search
+  - Traverse a graph level by level
+  - Utilizes a Queue
+  - Better if destination is on average close to start
+  - Siblings are visited before children
+
+* Depth First Search
+  - Traverse a graph branch by branch
+  - Utilizes a Stack
+  - Better if destination is far from start
+  - Children are visited before siblings

@@ -18,7 +18,7 @@
    - Adjacency Matrix: A two-dimensional matrix that is used to represent a graph.
    - Adjacency List: A collection of linked lists or arrays that lists all of the other vertices that are connected.
 
-*** [Adjacency Matrix]{/ AdjacencyMatrix.java }
+*** [Adjacency Matrix]{/ AdjacencyMatrix.java}
     - A two-dimensional matrix, in which the rows represent source vertices and columns represent destination vertices.
     - Data on edges and vertices are stored in the matrix.
     - If the graph is undirected, the matrix is symmetric.
