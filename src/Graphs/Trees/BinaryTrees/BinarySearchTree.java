@@ -16,7 +16,7 @@ public class BinarySearchTree {
       return root;
     } else if (data < root.intData) {
       root.left = insertHelper(root.left, node);
-    } else {
+    } else if (data > root.intData) {
       root.right = insertHelper(root.right, node);
     }
     return root;
@@ -71,7 +71,7 @@ public class BinarySearchTree {
       } else if (root.right != null) {
         root.intData = successor(root);
         root.right = removeHelper(root.right, root.intData);
-      } else {
+      } else if (root.left != null) {
         root.intData = predecessor(root);
         root.left = removeHelper(root.left, root.intData);
       }
@@ -106,7 +106,7 @@ public class BinarySearchTree {
     tree.insert(new Node(1));
     tree.insert(new Node(3));
 
-    tree.remove(4);
+    tree.remove(6);
 
     tree.display();
   }

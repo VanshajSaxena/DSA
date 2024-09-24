@@ -3,13 +3,12 @@
  */
 public class Node {
 
-  String data;
+  String strData;
   int intData;
-  Node left;
-  Node right;
+  Node left, right;
 
   Node(String data) {
-    this.data = data;
+    this.strData = data;
   }
 
   Node(int intData) {
