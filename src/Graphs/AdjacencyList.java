@@ -63,7 +63,7 @@ class AdjacencyListGraph extends Graph {
   public void print() {
     for (LinkedList<Node> currentList : alist) {
       for (Node node : currentList) {
-        System.out.print(node.intData + " -> ");
+        System.out.print(node.strData + " -> ");
       }
       System.out.println();
     }

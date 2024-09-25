@@ -55,11 +55,11 @@ class AdjacencyMatrixGraph extends Graph {
   public void print() {
     System.out.print("  ");
     for (Node node : nodes) {
-      System.out.print(node.intData + " ");
+      System.out.print(node.strData + " ");
     }
     System.out.println();
     for (int i = 0; i < matrix.length; i++) {
-      System.out.print(nodes.get(i).intData + " ");
+      System.out.print(nodes.get(i).strData + " ");
       for (int j = 0; j < matrix[i].length; j++) {
         System.out.print(matrix[i][j] + " ");
       }
