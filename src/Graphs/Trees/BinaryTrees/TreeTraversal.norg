@@ -1,0 +1,40 @@
+* Tree Traversal
+
+  >           [A]
+  >          /  \\
+  >        [B]      [C]
+  >      /  \\    /  \\
+  >     [D]    [E]  [F]    [G]
+
+** In-Order Traversal
+   - Left ->  Root ->  Right
+   - In-Order Traversal of the above tree will be: D -> B -> E -> A -> F -> C -> G
+   @code java
+   private void traverseTree(Node root) {
+     traverseTree(root.left);
+     System.out.println(root.data);
+     traverseTree(root.right)
+   }
+   @end
+
+** Pre-Order Traversal
+   - Root ->  Left ->  Right
+   - Pre-Order Traversal of the above tree will be: A -> B -> D -> E -> C -> F -> G
+   @code java
+   private void traverseTree(Node root) {
+     System.out.println(root.data);
+     traverseTree(root.left);
+     traverseTree(root.right)
+   }
+   @end
+
+** Post-Order Traversal
+   - Left ->  Right ->  Root
+   - Post-Order Traversal of the above tree will be: D -> E -> B -> F -> G -> C -> A
+   @code java
+   private void traverseTree(Node root) {
+     traverseTree(root.left);
+     traverseTree(root.right)
+     System.out.println(root.data);
+   }
+   @end
