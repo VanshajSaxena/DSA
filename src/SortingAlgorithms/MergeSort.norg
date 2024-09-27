@@ -1,4 +1,5 @@
 * [Merge Sort Algorithm]{/ MergeSort.java}
+
   - Merge Sort is a *recursive* algorithm that merges two sorted arrays into one sorted array.
   - It divides the array into two halves, sorts the two halves, and then merges the two halves.
   - It has a time complexity of O(n log n), Quasilinear time complexity.

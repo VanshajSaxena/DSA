@@ -5,3 +5,18 @@
 
   Prefered over Bubble sort and Selection sort.
   The best case is O(n), compared to Selection sort and Bubble sort's O(n^2).
+
+  @code java
+  private static void insertionSort(int[] array) {
+    for (int i = 1; i < array.length; i++) {
+      int temp = array[i];
+      int j = i - 1;
+
+      while (j >= 0 && array[j] > temp) {
+        array[j + 1] = array[j];
+        j--;
+      }
+      array[j + 1] = temp;
+    }
+  }
+  @end
