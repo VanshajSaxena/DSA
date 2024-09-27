@@ -24,20 +24,21 @@ public class MergeSort {
     int[] leftArray = new int[middle];
     int[] rightArray = new int[length - middle];
 
-    // int i = 0; // for leftArray
-    // int j = 0; // for rightArray
-    //
-    // for (; i < length; i++) {
-    // if (i < middle) {
-    // leftArray[i] = array[i];
-    // } else {
-    // rightArray[j] = array[i];
-    // j++;
-    // }
-    // }
+    int i = 0; // for leftArray
+    int j = 0; // for rightArray
 
-    System.arraycopy(array, 0, leftArray, 0, middle); // better performance, same result
-    System.arraycopy(array, middle, rightArray, 0, length - middle); // ..
+    for (; i < length; i++) {
+      if (i < middle) {
+        leftArray[i] = array[i];
+      } else {
+        rightArray[j] = array[i];
+        j++;
+      }
+    }
+
+    // System.arraycopy(array, 0, leftArray, 0, middle); // better performance, same
+    // result
+    // System.arraycopy(array, middle, rightArray, 0, length - middle); // ..
 
     mergeSort(leftArray);
     mergeSort(rightArray);

@@ -15,8 +15,17 @@
     int[] leftArray = new int[middle];
     int[] rightArray = new int[length - middle];
 
-    System.arraycopy(array, 0, leftArray, 0, middle);
-    System.arraycopy(array, middle, rightArray, 0, length - middle);
+    int i = 0; // for leftArray
+    int j = 0; // for rightArray
+
+    for (; i < length; i++) {
+      if (i < middle) {
+        leftArray[i] = array[i];
+      } else {
+        rightArray[j] = array[i];
+        j++;
+      }
+    }
 
     mergeSort(leftArray);
     mergeSort(rightArray);
