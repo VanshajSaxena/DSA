@@ -8,41 +8,41 @@
 ** Space complexity:
    - O(log n) average (due to recursion)
 
-   @code java
-   private static void quickSort(int[] array, int start, int end) {
-     if (end <= start)
-     return;
+   ===
+@code java
+private static void quickSort(int[] array, int start, int end) {
+  if (end <= start)
+  return;
 
-     int pivot = partition(array, start, end);
-     quickSort(array, start, pivot - 1);
-     quickSort(array, pivot + 1, end);
-   }
+  int pivot = partition(array, start, end);
+  quickSort(array, start, pivot - 1);
+  quickSort(array, pivot + 1, end);
+}
 
-   private static int partition(int[] array, int start, int end) {
+private static int partition(int[] array, int start, int end) {
 
-     int pivot = array[end];  // Choose the last element as the pivot
-     int i = start - 1;       // Pointer for the smaller element
+  int pivot = array[end];  // Choose the last element as the pivot
+  int i = start - 1;       // Pointer for the smaller element
 
-     // Loop through the array from `start` to `end - 1`
-     // This essentially places the `i` pointer to just before the
-     // place where new pivot position will be.
-     for (int j = start; j < end; j++) {
-       if (array[j] < pivot) {  // If current element is smaller than the pivot
-         i++;                 // Increment the smaller element pointer
-         int temp = array[i];  // Swap elements at `i` and `j`
-         array[i] = array[j];
-         array[j] = temp;
-       }
-     }
+  // Loop through the array from `start` to `end - 1`
+  // This essentially places the `i` pointer to just before the
+  // place where new pivot position will be.
+  for (int j = start; j < end; j++) {
+    if (array[j] < pivot) {  // If current element is smaller than the pivot
+      i++;                 // Increment the smaller element pointer
+      int temp = array[i];  // Swap elements at `i` and `j`
+      array[i] = array[j];
+      array[j] = temp;
+    }
+  }
 
-     // the pivot element is placed in its final correct position by swapping
-     // it with the element at `i + 1`.
-     i++;
-     int temp = array[i];
-     array[i] = array[end];
-     array[end] = temp;
+  // the pivot element is placed in its final correct position by swapping
+  // it with the element at `i + 1`.
+  i++;
+  int temp = array[i];
+  array[i] = array[end];
+  array[end] = temp;
 
-     return i;  // Return the pivot's final position
-   }
-   @end
-
+  return i;  // Return the pivot's final position
+}
+@end

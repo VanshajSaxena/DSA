@@ -21,6 +21,7 @@ public class BinarySearch {
     }
   }
 
+  // This is iterative binary search.
   private static int binarySearch(int[] array, int target) {
     int low = 0;
     int high = array.length - 1;
