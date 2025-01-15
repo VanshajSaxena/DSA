@@ -74,7 +74,7 @@
     }
     @end
 
-*** O(n^2) - Quadratic Time `[Insertion Sort | Selection Sort | Bubble Sort]`
+*** O(n^2) - Polynomial Time (Quadratic) `[Insertion Sort | Selection Sort | Bubble Sort]`
     - The number of steps increases quadratically with the amount of data.
     @code java
     void bubbleSort(int[] array) {

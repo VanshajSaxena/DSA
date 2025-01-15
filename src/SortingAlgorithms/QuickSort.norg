@@ -28,8 +28,8 @@ private static int partition(int[] array, int start, int end) {
   // This essentially places the `i` pointer to just before the
   // place where new pivot position will be.
   for (int j = start; j < end; j++) {
-    if (array[j] < pivot) {  // If current element is smaller than the pivot
-      i++;                 // Increment the smaller element pointer
+    if (array[j] < pivot) { // If current element is smaller than the pivot
+      i++;                  // Increment the smaller element pointer
       int temp = array[i];  // Swap elements at `i` and `j`
       array[i] = array[j];
       array[j] = temp;
