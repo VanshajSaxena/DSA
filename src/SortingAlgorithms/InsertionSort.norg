@@ -3,20 +3,29 @@
   - Small Data Set: Decent
   - Large Data Set: BAD
 
-  Prefered over Bubble sort and Selection sort.
+  Preferred over Bubble sort and Selection sort.
   The best case is O(n), compared to Selection sort and Bubble sort's O(n^2).
+
+  *Insertion sort is a sorting algorithm that places an unsorted element at its
+  suitable place in each iteration by shifting its left adjacent elements to
+  right*
+
+  .image InsertionSort.gif
 
   @code java
   private static void insertionSort(int[] array) {
     for (int i = 1; i < array.length; i++) {
-      int temp = array[i];
+      int key = array[i];
       int j = i - 1;
 
-      while (j >= 0 && array[j] > temp) {
+      // Compare key with each element on the left of it until an element smaller than
+      // it is found.
+      // For descending order, change key<array[j] to key>array[j].
+      while (j >= 0 && array[j] > key) {
         array[j + 1] = array[j];
         j--;
       }
-      array[j + 1] = temp;
+      array[j + 1] = key;
     }
   }
   @end

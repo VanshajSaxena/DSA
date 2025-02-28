@@ -4,6 +4,8 @@
   - Small Data Sets: Fine
   - Large Data Sets: BAD
 
+  *After each iteration we get next minimum to the left.*
+
   @code java
   private static void selectionSort(int[] array) {
     for (int i = 0; i < array.length - 1; i++) {

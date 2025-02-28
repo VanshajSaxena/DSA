@@ -18,7 +18,18 @@
   }
   @end
 
-  - In the iterative method: In the first iteration, we selected the range 0 to n-1 and swaped adjacent elements `if (arr[i] > arr[i+1])` until the maximum element reached the (n-1)th index. Similarly, in the second iteration, the second maximum element reached the (n-2)th index. So, the sorting basically occured in the backward direction.  After (n-1) such iterations we got the sorted array.
+  - In the iterative method: In the first iteration, we selected the range 0 to
+    n-1 and swaped adjacent elements `if (arr[i] > arr[i+1])` until the maximum
+    element reached the (n-1)th index. Similarly, in the second iteration, the
+    second maximum element reached the (n-2)th index. So, the sorting basically
+    occured in the backward direction.  After (n-1) such iterations we got the
+    sorted array.
+
+  *After the nth pass, the nth largest element will be at nth last position in
+  the array, where ‘n’ is the size of the array.*
+
+  *This sorting algo can be used to check if an array is sorted or not
+  efficiently in O(N) time*
 
   @code java
   private void recursiveBubbleSort(int[] arr, int n){
@@ -38,3 +49,6 @@
     recursiveBubbleSort(arr, n - 1);
   }
   @end
+
+  .image BubbleSort.gif
+
