@@ -1,12 +1,19 @@
 * [Quick Sort Algorithm]{/ QuickSort.java}
-  - Moves smaller elements to the left and larger elements to the right of the pivot element.
-  - Recursively divides the array into two sub-arrays by partitioning them using pivot and sorts them.
+  - Moves smaller elements to the left and larger elements to the right of the
+    pivot element.
+  - Recursively divides the array into two sub-arrays by partitioning them
+    using pivot and sorts them.
 ** Time complexity:
    - Best Case: O(n log n) average
    - Average Case: O(n log n) average
-   - Worst Case: O(n^2) worst case (if the pivot is the smallest or largest element in the array)
+   - Worst Case: O(n^2) worst case (if the pivot is the smallest or largest
+     element in the array)
 ** Space complexity:
    - O(log n) average (due to recursion)
+
+   *The Quicksort algorithm takes an array of values, chooses one of the values
+   as the 'pivot' element, and moves the other values so that lower values are
+   on the left of the pivot element, and higher values are on the right of it.*
 
    ===
 @code java
