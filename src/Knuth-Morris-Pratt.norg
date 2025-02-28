@@ -1,0 +1,60 @@
+* Knuth Morris Pratt
+
+** The KMP Algorithm is an algorithm that allows to search for patterns in a string efficiently. This algorithm has a time complexity of `O(n + m)`, where `n` is the length of the string to search in and `m` is the length of the pattern.
+
+
+   @code java
+   // Vanilla KMP Implementation
+
+   public int indexOf(String str, String pattern) {
+     // Longest Prefix Sufix Precomputation
+     int[] LPS = computeLPS(pattern);
+
+     // Finding the first index in String `str`
+     int firstIndex = firstIndex(pattern, str, LPS);
+
+     return firstIndex;
+   }
+
+   private int firstIndex(String pattern, String str, int[] LPS) {
+     int j = 0;
+     int i = 0;
+     while (i < str.length()) {
+
+       if (str.charAt(i) == pattern.charAt(j)) {
+         j++;
+         i++;
+       } else if (j != 0) {
+         j = LPS[j - 1];
+       } else {
+         i++;
+       }
+
+       if (j == pattern.length()) {
+         return i - j;
+       }
+     }
+     return -1;
+   }
+
+   private int[] computeLPS(String pattern) {
+     int[] LPS = new int[pattern.length()];
+     int i = 1, preLPS = 0;
+
+     while (i < pattern.length()) {
+       if (pattern.charAt(i) == pattern.charAt(preLPS)) {
+         LPS[i] = preLPS + 1;
+         preLPS++;
+         i++;
+       } else {
+         if (preLPS != 0) {
+           preLPS = LPS[preLPS - 1];
+         } else {
+           LPS[i] = 0;
+           i++;
+         }
+       }
+     }
+     return LPS;
+   }
+   @end
