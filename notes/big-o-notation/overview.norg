@@ -1,13 +1,13 @@
 * Big O Notation
 
-** /"How code slows as data grows."/
+  > /"How code slows as data grows."/
 
-   ~ Describes the performance of an algorithm as the amount of data
-     increases.
-   ~ Machine Independent. (Number of steps to completion.)
-   ~ Ignore smaller operations. `O(n+1) -> O(n)`
+  ~ Describes the performance of an algorithm as the amount of data
+    increases.
+  ~ Machine Independent. (Number of steps to completion.)
+  ~ Ignore smaller operations. `O(n+1) -> O(n)`
 
-*** O(1) - Constant Time `[Accessing an element in an array | Inserting a node at the beginning of a linked list]`
+*** $O(1)$ - Constant Time `[Accessing an element in an array | Inserting a node at the beginning of a linked list]`
 
     - The number of steps does not change with the amount of data.
 
@@ -17,7 +17,7 @@
     }
     @end
 
-*** O(log n) - Logarithmic Time `[Binary Search]`
+*** $O(\log{n})$ - Logarithmic Time `[Binary Search]`
 
     - The number of steps increases logarithmically with the amount of data.
 
@@ -39,7 +39,7 @@
     }
     @end
 
-*** O(n) - Linear Time `[Search through a linked list | Looping through an Array]`
+*** $O(n)$ - Linear Time `[Search through a linked list | Looping through an Array]`
 
     - The number of steps increases linearly with the amount of data.
 
@@ -53,7 +53,7 @@
     }
     @end
 
-*** O(n log n) - Quasilinear Time `[Quick Sort | Merge Sort | Heap Sort]`
+*** $O(n \log{n})$ - Quasilinear Time `[Quick Sort | Merge Sort | Heap Sort]`
 
     - The number of steps increases log-linearly with the amount of data.
 
@@ -83,7 +83,7 @@
     }
     @end
 
-*** O(n^2) - Polynomial Time (Quadratic) `[Insertion Sort | Selection Sort | Bubble Sort]`
+*** $O(n^2)$ - Polynomial Time (Quadratic) `[Insertion Sort | Selection Sort | Bubble Sort]`
 
     - The number of steps increases quadratically with the amount of data.
 
@@ -102,7 +102,7 @@
     }
     @end
 
-*** O(n!) - Factorial Time `[Traveling Salesman Problem | Permutations]`
+*** $O(n!)$ - Factorial Time `[Traveling Salesman Problem | Permutations]`
 
     - The number of steps increases factorially with the amount of data.
 
