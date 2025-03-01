@@ -27,3 +27,18 @@
    All elements before the slow pointer can be non-zero, And all elements
    between slow pointer and the current can be zeros.
 
+** (x) [Missing Number]{https://leetcode.com/problems/missing-number/description/}
+
+   The most optimal solution is to use the XOR operation. The XOR operator
+   has a special quality, when two same numbers are XORed they result in 0.
+   This special property can be used to find the missing number.
+
+** (x) [Max Consecutive Ones]{https://leetcode.com/problems/max-consecutive-ones/description/}
+
+   You actually need to have a way to cache the state of the number of ones
+   encountered before. This state can be stored in a variable, which needs to
+   be incremented whenever a one is encountered, and reset to zero whenever a
+   zero is encountered. At each step in the iteration process, when you
+   encounter a one a global max state can be updated, which will accumulate the
+   maximum number of ones encountered so far.
+
