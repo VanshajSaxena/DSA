@@ -25,5 +25,5 @@
    The trick to minimize the operations is to realize:
 
    All elements before the slow pointer can be non-zero, And all elements
-   between slow pointer can the current can be zeros.
+   between slow pointer and the current can be zeros.
 
