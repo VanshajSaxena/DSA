@@ -1,4 +1,4 @@
-* Easy Problems
+* ( ) Easy Problems
 
 ** (x) [Check If Array is Sorted and Rotated]{https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/description/}
 
@@ -7,4 +7,23 @@
 
    .image sorting-algorithms-complexities.png
 
+** (x) [Remove Duplicates from Sorted Array]{https://leetcode.com/problems/remove-duplicates-from-sorted-array/description/}
+
+   To do it in linear time complexity, use two pointers. One pointer takes care
+   of the current index to write to, and the other pointer checks for
+   duplicates in the array. Whenever a new element is found, the write pointer
+   can be incremented, and the new value can be written.
+
+** (x) [Rotate Array]{https://leetcode.com/problems/rotate-array/}
+
+   The trick is in reversing the array in three separate steps. First, reverse
+   the entire array. Then, reverse the first $k$ elements. Finally, reverse the
+   remaining $n - k$ elements.
+
+** (x) [Move Zeros]{https://leetcode.com/problems/move-zeroes/}
+
+   The trick to minimize the operations is to realize:
+
+   All elements before the slow pointer can be non-zero, And all elements
+   between slow pointer can the current can be zeros.
 
