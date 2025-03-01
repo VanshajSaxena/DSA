@@ -2,12 +2,15 @@
 
 ** /"How code slows as data grows."/
 
-   ~ Describes the performance of an algorithm as the amount of data increases.
+   ~ Describes the performance of an algorithm as the amount of data
+     increases.
    ~ Machine Independent. (Number of steps to completion.)
    ~ Ignore smaller operations. `O(n+1) -> O(n)`
 
 *** O(1) - Constant Time `[Accessing an element in an array | Inserting a node at the beginning of a linked list]`
+
     - The number of steps does not change with the amount of data.
+
     @code java
     int addUp(int n) {
       return n * (n + 1) / 2;
@@ -15,7 +18,9 @@
     @end
 
 *** O(log n) - Logarithmic Time `[Binary Search]`
+
     - The number of steps increases logarithmically with the amount of data.
+
     @code java
     int binarySearch(int[] array, int target) {
       int low = 0;
@@ -35,7 +40,9 @@
     @end
 
 *** O(n) - Linear Time `[Search through a linked list | Looping through an Array]`
+
     - The number of steps increases linearly with the amount of data.
+
     @code java
     int addUp(int n) {
       int sum = 0;
@@ -47,7 +54,9 @@
     @end
 
 *** O(n log n) - Quasilinear Time `[Quick Sort | Merge Sort | Heap Sort]`
-    - The number of steps increases linearithmically with the amount of data.
+
+    - The number of steps increases log-linearly with the amount of data.
+
     @code java
     void quickSort(int[] array, int low, int high) {
       if (low < high) {
@@ -75,7 +84,9 @@
     @end
 
 *** O(n^2) - Polynomial Time (Quadratic) `[Insertion Sort | Selection Sort | Bubble Sort]`
+
     - The number of steps increases quadratically with the amount of data.
+
     @code java
     void bubbleSort(int[] array) {
       int n = array.length;
@@ -92,7 +103,9 @@
     @end
 
 *** O(n!) - Factorial Time `[Traveling Salesman Problem | Permutations]`
+
     - The number of steps increases factorially with the amount of data.
+
     @code java
     void permute(String str, int l, int r) {
       if (l == r) {
@@ -114,5 +127,3 @@
       return String.valueOf(charArray);
     }
     @end
-
-*** [Time vs Data Graph]{./src/Complexity/TimeComplexityWithBigONotation.jpg}
