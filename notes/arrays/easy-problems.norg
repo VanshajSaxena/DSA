@@ -1,2 +1,10 @@
 * Easy Problems
 
+** (x) [Check If Array is Sorted and Rotated]{https://leetcode.com/problems/check-if-array-is-sorted-and-rotated/description/}
+
+   One of the best way to check if an array is sorted is to use bubble
+   sort. It has a best case time complexity of $O(n)$.
+
+   .image sorting-algorithms-complexities.png
+
+
