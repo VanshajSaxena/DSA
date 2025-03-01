@@ -42,3 +42,28 @@
    encounter a one a global max state can be updated, which will accumulate the
    maximum number of ones encountered so far.
 
+** (x) [Single Number]
+
+   [Missing Number]
+
+** (x) [Two Sum]{https://leetcode.com/problems/two-sum/description/}
+
+   This problem can be solved by using a map. At each iteration step, you query
+   the map to check if you have encountered a value that could be used to
+   create the two sum with the current iteration value.
+
+** (x) [Sort Colors]{https://leetcode.com/problems/sort-colors/description/}
+
+   Use Dutch National Flag Algorithm, maintaining three pointers: low, mid, high.
+
+   Put low and mid at beginning & high at the end.
+
+   The idea behind the algorithm is to keep all the 0s before the low pointer, all
+   the 2s after the high pointer, and all the 1s between the low and high
+   pointers. The algorithm moves the mid pointer through the array, comparing
+   the value at each position with 1. If the value is 0, the element is swapped
+   with the element at the low pointer, and the low and mid pointers are
+   incremented. If the value is 2, the element is swapped with the element at
+   the high pointer, and the high pointer is decremented. If the value is 1,
+   the mid pointer is simply incremented.
+
