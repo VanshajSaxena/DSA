@@ -18,14 +18,14 @@
    - Adjacency Matrix: A two-dimensional matrix that is used to represent a graph.
    - Adjacency List: A collection of linked lists or arrays that lists all of the other vertices that are connected.
 
-*** [Adjacency Matrix]{/ AdjacencyMatrix.java}
+*** Adjacency Matrix
     - A two-dimensional matrix, in which the rows represent source vertices and columns represent destination vertices.
     - Data on edges and vertices are stored in the matrix.
     - If the graph is undirected, the matrix is symmetric.
     - Pros: Removing an edge takes O(1) time. Queries like whether there is an edge from vertex 'u' to vertex 'v' are efficient and can be done in O(1) time.
     - Cons: Consumes more space O(V^2). Even if the graph is sparse (contains fewer edges), it still consumes the same amount of space. Adding a vertex is O(V^2) time.
 
-*** [Adjacency List]{/ AdjacencyList.java}
+*** Adjacency List
     - A collection of linked lists or array that lists all of the other vertices that are connected.
     - *Each LinkedList has a unique node at the head.*
     - All adjacent neighbors to that node are added to that node's LinkedList at the tail.

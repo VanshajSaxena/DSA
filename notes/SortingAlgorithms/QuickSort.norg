@@ -1,4 +1,4 @@
-* [Quick Sort Algorithm]{/ QuickSort.java}
+* Quick Sort Algorithm
   - Moves smaller elements to the left and larger elements to the right of the
     pivot element.
   - Recursively divides the array into two sub-arrays by partitioning them

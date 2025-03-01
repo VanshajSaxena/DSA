@@ -8,7 +8,7 @@
 
   Binary trees are widely used for efficient data storage and retrieval, such as in binary search trees and heaps.
 
-** [Types of Binary Trees]{/ BinaryTrees.png}
+** Types of Binary Trees
    - *Full Binary Tree*: A binary tree in which each node has either 0 or 2 children.
    - *Complete Binary Tree*: A binary tree in which all levels are fully filled except possibly for the lowest level, which is filled from left to right.
    - *Degenerate (or pathological) tree*: A tree in which each parent node has only one associated child node.

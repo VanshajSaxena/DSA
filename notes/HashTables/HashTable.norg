@@ -1,4 +1,4 @@
-* [Hash Table Data Structure]{/ HashTable.java}
+* Hash Table Data Structure
   - A data structure that stores unique keys to values. (In Java both are reference data types. ex. `<Integer, String>`).
   - Each key/value pair is known as an Entry.
   - Fast insertion, lookup, deletion of key/value pairs.
