@@ -1,4 +1,0 @@
-[submodule "src/Problems"]
-	path = src/Problems
-	url = git@github.com:VanshajSaxena/Problems.git
-	branch = master
