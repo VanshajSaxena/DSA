@@ -46,6 +46,17 @@
    the left pointer is negative and the element at the right pointer is
    positive. This way we can rearrange the array elements by sign.
 
-** ( ) [Next Permutation]{https://leetcode.com/problems/next-permutation/description/}
+** (x) [Next Permutation]{https://leetcode.com/problems/next-permutation/description/}
+
+   .image https://leetcode.com/media/original_images/31_nums_graph.png
+
+   Because you need to find the just greater number out of all the permutations
+   of the array. The idea is to realize that you only want to replace any
+   number which is at most right as it can be in the array. Because swapping
+   with a number from the left would cause a big change in the number. Thus, to
+   find which number you need to swap, you need to find the first number from
+   the right which is smaller than the number at the right. This number will
+   cause the least change in the value of the number when swapped with a number
+   which is just greater than it, to the right of it.
 
 
