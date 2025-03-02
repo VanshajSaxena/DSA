@@ -42,7 +42,7 @@
    encounter a one a global max state can be updated, which will accumulate the
    maximum number of ones encountered so far.
 
-** (x) [Single Number]
+** (x) [Single Number]{https://leetcode.com/problems/single-number/description/}
 
    [Missing Number]
 
