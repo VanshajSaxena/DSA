@@ -1,6 +1,6 @@
 * Medium Problems
 
-** [Maximum Subarray]{https://leetcode.com/problems/maximum-subarray/description/}
+** (x) [Maximum Subarray]{https://leetcode.com/problems/maximum-subarray/description/}
 
    The most optimal solution is to use Kadane's Algorithm. It is a
    greedy/dynamic programming algorithm that can be used an on array. It is
@@ -20,7 +20,7 @@
    maximum subarray. If our running sum exceeds the global max sum, we update
    the `maxL` and `maxR` pointers and the global max sum.
 
-** [Best Time to Buy and Sell Stocks]{https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/}
+** (x) [Best Time to Buy and Sell Stocks]{https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/}
 
    Using the same idea as the [Maximum Subarray] problem, at each iteration
    update a global max variable to the max profit found so far and if the
@@ -38,3 +38,14 @@
        max_sum = max(max_sum, curr_price - min_price)
        return max_sum
    @end
+
+** (x) [Rearrange Array Elements by Sign]{https://leetcode.com/problems/rearrange-array-elements-by-sign/description/}
+
+   The idea is to use the two-pointer technique. Have two pointers `left` and
+   `right` and keep swapping the elements at these pointers if the element at
+   the left pointer is negative and the element at the right pointer is
+   positive. This way we can rearrange the array elements by sign.
+
+** ( ) [Next Permutation]{https://leetcode.com/problems/next-permutation/description/}
+
+
