@@ -96,5 +96,6 @@
    to the `right` pointer if the running sum get less than zero. By maintaining
    another pair of variables (pointers), say `maxL` and `maxR` to the boundary
    of the max sum encountered we can also return the actual indices of the
-   maximum subarray.
+   maximum subarray. If our running sum exceeds the global max sum, we update
+   the `maxL` and `maxR` pointers and the global max sum.
 
