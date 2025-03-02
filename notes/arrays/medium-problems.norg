@@ -22,3 +22,19 @@
 
 ** [Best Time to Buy and Sell Stocks]{https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/}
 
+   Using the same idea as the [Maximum Subarray] problem, at each iteration
+   update a global max variable to the max profit found so far and if the
+   current price of the stock declines even more update the min variable to
+   counter for future profits. The profit at each iteration is the difference
+   between the current price and the min price encountered so far. Maximum of
+   the profits for each iteration is the global max profit.
+
+   @code python
+   def maxProfit(self, prices: List[int]) -> int:
+     max_sum = 0
+     min_price = prices[0]  # min
+     for curr_price in prices:
+       min_price = min(min_price, curr_price)
+       max_sum = max(max_sum, curr_price - min_price)
+       return max_sum
+   @end
