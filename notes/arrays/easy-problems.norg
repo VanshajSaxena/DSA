@@ -67,7 +67,7 @@
    the high pointer, and the high pointer is decremented. If the value is 1,
    the mid pointer is simply incremented.
 
-** [Majority Element]{https://leetcode.com/problems/majority-element/description/}
+** (x) [Majority Element]{https://leetcode.com/problems/majority-element/description/}
 
    This uses a clever technique, Moore's Voting Algorithm: It is only works if
    there is a clear majority.
