@@ -97,7 +97,7 @@
 
    > In-place algorithms overwrite the input to save space, but sometimes this
    > can cause problems. Here are a couple of situations where an in-place
-     algorithm might not be suitable:
+   > algorithm might not be suitable:
 
    ~ The algorithm needs to run in a multi-threaded environment without
      exclusive access to the array. Other threads might need to read the array
