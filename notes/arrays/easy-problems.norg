@@ -78,3 +78,49 @@
 
    So, if for each candidate element, we cancel out its occurrence with other,
    only the majority candidate element will remain.
+
+** [Apply Operations to an Array]{https://leetcode.com/problems/apply-operations-to-an-array/description/}
+
+   The question demands to apply a series of operations to an array. This can
+   be achieved by creating an auxiliary array of the same length and applying
+   the operations in order. First double the element and set the next element
+   to zero whenever the condition is met. Next by iterating the array, capture
+   any non-zero number to the auxiliary array, by incrementing a
+   `non-zero-index` at each step. Finally by iterating the array again, fill
+   the remaining elements with zeros to the length of the array.
+
+   This give the overall time and space complexity of $O(n)$ and  $O(1)$
+   respectively.
+
+   To optimize the memory used by the auxiliary array, we can modify the array
+   in-place. It has some implications:
+
+   > In-place algorithms overwrite the input to save space, but sometimes this
+   > can cause problems. Here are a couple of situations where an in-place
+     algorithm might not be suitable:
+
+   ~ The algorithm needs to run in a multi-threaded environment without
+     exclusive access to the array. Other threads might need to read the array
+     as well and may not expect it to be modified.
+   ~ Even if there is only a single thread or the algorithm has exclusive
+     access to the array while running, the array might need to be reused later
+     or by another thread once the lock has been released.
+
+   This can be asked in an interview.
+
+   By maintaining a separate `non-zero-index` variable, we can overwrite the
+   array with the current non zero values encountered. And later filling the
+   remaining array with zeros. But, this approach still compels at least two
+   passes.
+
+   The operations can be applied in a single pass; In this approach when we
+   encounter a non zero value we increment our `write-index` variable and swap
+   the element at the current index with `write-index` only if our current
+   index does not match `write-index` By only incrementing the `write-index`
+   when we encounter a non zero value we ensure when we next time meet a non
+   zero value the `write-index` will be at a zero value position. Thus we can
+   do a swap, which naturally pushes the zero at the end of the array.
+
+   This makes the space complexity to be $O(1)$, as we are not using any extra
+   space, but only a few variables.
+
