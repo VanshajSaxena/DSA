@@ -1,9 +1,0 @@
-* Binary Search
-
-** Complexity:
-   - O(log n) time complexity
-** Advantages:
-   - Fast for large data sets.
-** Disadvantages:
-   - Requires sorted data.
-
