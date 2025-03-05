@@ -1,0 +1,18 @@
+* ( ) Medium Problems
+
+** ( ) [Longest Common Subsequence]{https://leetcode.com/problems/longest-common-subsequence/description/}
+
+   This problem can be solved using the bottom-up approach of dynamic
+   programming. We can first start with the subproblems and then build up the
+   solution to the main problem.
+   A 2D array of dimensions $m + 1 \times n + 1$ filled with zeros can be used
+   to store the solutions to the subproblems, where `m` and `n` are
+   the lengths of the two strings. The extra row and column accounts for the
+   empty string, whose score will be 0.
+
+   This would have a time and space complexity of $O(m \times n)$ and a space
+   complexity.
+
+** ( ) Longest Palindromic Subsequence
+
+** ( ) Longest Palindromic Subsequence after K Operations
