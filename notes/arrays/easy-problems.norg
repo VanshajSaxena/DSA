@@ -131,3 +131,23 @@
    For whichever index the id is lesser put that into the list and increment
    the pointer. If the id is same, sum the values and put that into the list.
 
+** [Find the Largest Almost Missing Number]{https://leetcode.com/problems/find-the-largest-almost-missing-integer/description/}
+
+   One way to solve this problem is to actually generate all the subarrays of
+   length $k$ by starting at all the possible indices than can contribute to
+   $k$ length subarrays. Then, by accumulating each number in each subarray
+   into a set, we can maintain a map of frequencies of each number. Finally, by
+   iterating over the map, we can find the largest number that has the
+   frequency exactly equal to 1. This would have a time complexity of
+   $O(n \log{n})$ in the worst case.
+
+   To improve upon the time complexity, we can iterate over the array once and
+   accumulate the frequencies of each number in the subarray into a map. If
+   $k$ is 1 the largest almost missing will just be largest number in the
+   array with frequency 1. If $k$ is equal to array length, the largest
+   missing number will be the largest number irrespective of the frequency.
+   If k is in between 1 and array length, the largest almost missing number can
+   only be at the start or the end of the array. Whichever is the larger will
+   be the largest missing number.
+
+
