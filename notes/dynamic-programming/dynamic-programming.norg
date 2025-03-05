@@ -1,0 +1,14 @@
+* Dynamic Programming
+
+  Dynamic Programming is an optimization technique and a field of mathematics.
+
+  For Dynamic Programming to be applicable to a problem, the problem must have
+  two properties:
+
+  ~ [Optimal Substructure]{# Optimal Substructure}
+  ~ [Overlapping Subproblems]{# Overlapping Subproblems}
+
+** Optimal Substructure
+
+** Overlapping Subproblems
+
