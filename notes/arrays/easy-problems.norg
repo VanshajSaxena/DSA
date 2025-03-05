@@ -79,7 +79,7 @@
    So, if for each candidate element, we cancel out its occurrence with other,
    only the majority candidate element will remain.
 
-** [Apply Operations to an Array]{https://leetcode.com/problems/apply-operations-to-an-array/description/}
+** (x) [Apply Operations to an Array]{https://leetcode.com/problems/apply-operations-to-an-array/description/}
 
    The question demands to apply a series of operations to an array. This can
    be achieved by creating an auxiliary array of the same length and applying
@@ -124,14 +124,14 @@
    This makes the space complexity to be $O(1)$, as we are not using any extra
    space, but only a few variables.
 
-** [Merge Two 2D Arrays by Summing Values]{https://leetcode.com/problems/merge-two-2d-arrays-by-summing-values/description/}
+** (x) [Merge Two 2D Arrays by Summing Values]{https://leetcode.com/problems/merge-two-2d-arrays-by-summing-values/description/}
 
    This could be done in a single pass and $O(n)$ time complexity by using two
    pointers. Use two pointers to iterate over the two arrays simultaneously.
    For whichever index the id is lesser put that into the list and increment
    the pointer. If the id is same, sum the values and put that into the list.
 
-** [Find the Largest Almost Missing Number]{https://leetcode.com/problems/find-the-largest-almost-missing-integer/description/}
+** (x) [Find the Largest Almost Missing Number]{https://leetcode.com/problems/find-the-largest-almost-missing-integer/description/}
 
    One way to solve this problem is to actually generate all the subarrays of
    length $k$ by starting at all the possible indices than can contribute to
@@ -148,6 +148,5 @@
    missing number will be the largest number irrespective of the frequency.
    If k is in between 1 and array length, the largest almost missing number can
    only be at the start or the end of the array. Whichever is the larger will
-   be the largest missing number.
-
+   be the largest missing number. This has the time and space complexity of $O(n)$.
 
