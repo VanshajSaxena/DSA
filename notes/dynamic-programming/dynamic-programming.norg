@@ -1,6 +1,7 @@
 * Dynamic Programming
 
-  Dynamic Programming is an optimization technique and a field of mathematics.
+  Dynamic Programming is a *mathematical optimization technique* and an
+  *algorithmic paradigm*.
 
   For Dynamic Programming to be applicable to a problem, the problem must have
   two properties:
