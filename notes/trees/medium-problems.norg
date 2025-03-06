@@ -4,12 +4,12 @@
 
    To recover the binary tree, simply traverse the tree in a Depth First Search
    manner, overwriting the values of nodes at each step. This would have a time
-   complexity of $O(n)$, for the recovery process. The `find` method can be
-   also be implemented using the same approach, with a time complexity of
+   complexity of $O(n)$, for the recovery process. The `find` method can
+   be also be implemented using the same approach, with a time complexity of
    $O(n)$.
 
    To improve upon the time complexity of the `find` method, we can use a Set
    to cache all the node values recovered during the recovery process. This
-   would allow us to check if a value is present in the set in $O(1)$ time. The
-   space complexity of this approach would be $O(n)$.
+   would allow us to check if a value is present in the set in $O(1)$
+   time. The space complexity of this approach would be $O(n)$.
 

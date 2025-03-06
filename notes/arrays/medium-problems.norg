@@ -6,8 +6,8 @@
    greedy/dynamic programming algorithm that can be used an on array. It is
    used to calculate the maximum sum subarray ending at a particular position
    and typically runs in $O(n)$ time. Basically, maintain a running sum
-   variable that resets to zero if it gets less than zero (Because including
-   a negative number in the window will only decrease the overall sum). Also
+   variable that resets to zero if it gets less than zero (Because including a
+   negative number in the window will only decrease the overall sum). Also
    maintain a global max variable that keeps track of the max sum encountered
    so far for any window.
 

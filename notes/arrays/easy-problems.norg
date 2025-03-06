@@ -145,8 +145,9 @@
    accumulate the frequencies of each number in the subarray into a map. If
    $k$ is 1 the largest almost missing will just be largest number in the
    array with frequency 1. If $k$ is equal to array length, the largest
-   missing number will be the largest number irrespective of the frequency.
-   If k is in between 1 and array length, the largest almost missing number can
+   missing number will be the largest number irrespective of the frequency. If
+   k is in between 1 and array length, the largest almost missing number can
    only be at the start or the end of the array. Whichever is the larger will
-   be the largest missing number. This has the time and space complexity of $O(n)$.
+   be the largest missing number. This has the time and space complexity of
+   $O(n)$.
 

@@ -145,8 +145,8 @@
     *Time Complexity*: The outer loop runs from `i = 0` to `len(s) - 1` and for
     each `i`, the inner loop iterates from `j = len(s) - 1` to `i`.
 
-    In the worst case, there will be: $n(n+1)/2$ iterations, where `n` is
-    `len(s)`. Hence the overall time complexity is $O(n^2)$.
+    In the worst case, there will be: $n(n+1)/2$ iterations, where `n`
+    is `len(s)`. Hence the overall time complexity is $O(n^2)$.
 
     *Space Complexity*: The size of the `dp` array is `len(s) + 1` by `len(s) +
     1`, which requires $O(n^2)$ space.
