@@ -41,7 +41,7 @@
     then it is guranteed that the longest palindromic subsequence will be
     returned.
 
-*** (x) Approach Two
+*** (x) Approach Two (Recursion)
 
     The problem can be visualized as a decision tree problem where at each
     index (or pair of index) we check if there exists the same characters to
@@ -70,7 +70,7 @@
 
     *Time Complexity*: This has a time complexity of $O(2^n)$.
 
-*** ( ) Approach Three
+*** (+) Approach Three (Memoization)
 
     The time complexity of the previous approach can be improved by caching the
     results of the subproblems.
@@ -104,4 +104,50 @@
 
     *Time Complexity*: This improves the time complexity form $O(2^n)$ to
     $O(n^2)$.
+
+    The solution above still don't get accepted by LeetCode, maybe due to
+    recursion.
+
+*** (!) Approach Four (Iterative Bottom-Up)
+
+    Rather than building the solutions to subproblems top-down, we can build
+    them from the bottom and move up.
+
+    @code python
+    def longestPalindromeSubseq(self, s: str) -> int:
+        dp = [[0] * (len(s) + 1) for _ in range(len(s) + 1)]
+        result = 0
+        for i in range(len(s)):
+            for j in range(len(s) - 1, i - 1, -1):
+                if s[i] == s[j]:
+                    dp[i][j] = 1 if i == j else 2
+                    if i - 1 >= 0:
+                        dp[i][j] += dp[i - 1][j + 1]
+                else:
+                    dp[i][j] = dp[i][j + 1]
+                    if i - 1 >= 0:
+                        dp[i][j] = max(dp[i][j], dp[i - 1][j])
+                result = max(result, dp[i][j])
+
+        for arr in dp:
+            print(arr, "\n")
+        return result
+
+    # dp array after dry-run
+    # [1, 2, 2, 2, 2, 0]
+    # [0, 3, 4, 2, 2, 0]
+    # [0, 0, 3, 2, 2, 0]
+    # [0, 0, 0, 3, 2, 0]
+    # [0, 0, 0, 0, 1, 0]
+    # [0, 0, 0, 0, 0, 0]
+    @end
+
+    *Time Complexity*: The outer loop runs from `i = 0` to `len(s) - 1` and for
+    each `i`, the inner loop iterates from `j = len(s) - 1` to `i`.
+
+    In the worst case, there will be: $n(n+1)/2$ iterations, where `n` is
+    `len(s)`. Hence the overall time complexity is $O(n^2)$.
+
+    *Space Complexity*: The size of the `dp` array is `len(s) + 1` by `len(s) +
+    1`, which requires $O(n^2)$ space.
 
