@@ -2,10 +2,10 @@
 
 ** Problems
 
-*** ( ) Easy
+*** {:./easy-problems:}[Easy]
 
-*** ( ) Medium
+*** {:./medium-problems:}[Medium]
 
-*** ( ) Hard
+*** {:./hard-problems:}[Hard]
 
 ** [Dynamic Programming]{:./dynamic-programming:# Dynamic Programming}
