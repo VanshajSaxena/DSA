@@ -12,13 +12,13 @@
    so far for any window.
 
    Another way is to use the sliding window technique. The idea is to have two
-   pointer `left` and `right` and a running sum that represents the sum of our
-   current window. Similar to the previous approach, we set our `left` pointer
-   to the `right` pointer if the running sum gets less than zero. By maintaining
-   another pair of variables (pointers), say `maxL` and `maxR` to the boundary
-   of the max sum encountered we can also return the actual indices of the
-   maximum subarray. If our running sum exceeds the global max sum, we update
-   the `maxL` and `maxR` pointers and the global max sum.
+   pointers, `left` and `right` and a running sum that represents the sum of
+   our current window. Similar to the previous approach, we set our `left`
+   pointer to the `right` pointer if the running sum gets less than zero. By
+   maintaining another pair of variables (pointers), say `maxL` and `maxR` to
+   the boundary of the max sum encountered we can also return the actual
+   indices of the maximum subarray. If our running sum exceeds the global max
+   sum, we update the `maxL` and `maxR` pointers and the global max sum.
 
 ** (x) [Best Time to Buy and Sell Stocks]{https://leetcode.com/problems/best-time-to-buy-and-sell-stock/description/}
 
