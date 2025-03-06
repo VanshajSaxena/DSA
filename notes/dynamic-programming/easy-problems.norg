@@ -1,1 +1,58 @@
 * ( ) Easy Problems
+
+** ( ) [Climbing Stairs]{https://leetcode.com/problems/climbing-stairs/description/}
+
+   %TOPICS: Dynamic_Programming%
+
+*** (x) Approach One (Recursion)
+
+    This could simply be thought of as a decision problem, where at each step
+    either we take two steps or a single step. We increment the count each time
+    we reach the top of the staircase.
+
+    @code python
+    def climbStairs(self, n: int) -> int:
+      arr = [0] # lists are mutable
+        def climb(idx, arr):
+            if idx == n:
+                arr[0] += 1
+                return
+            if n - idx >= 2:
+                climb(idx + 2, arr)
+            if n - idx >= 1:
+                climb(idx + 1, arr)
+        climb(0, arr)
+    @end
+
+    *Time Complexity*: Exponential time complexity of $O(2^n)$. This is highly
+    inefficient even for small values of `n`.
+
+*** (x) Approach Two (Memoization)
+
+    The previous approach can be improved using a cache dictionary to store the
+    calculated results. And using them later to avoid recalculating the same
+    results.
+
+    @code python
+    def climbStairs(self, n: int) -> int:
+        cache = {}
+        def climb(idx, cache) -> int:
+            if idx == n:
+                return 1
+            if idx in cache:
+                return cache[idx]
+            if n - idx >= 1:
+                result = climb(idx + 1, cache)
+                cache[idx] = result
+            if n - idx >= 2:
+                result = climb(idx + 2, cache)
+                cache[idx] += result # notice the cache is update here
+            return cache[idx]
+        return climb(0, cache)
+    @end
+
+
+    *Time Complexity*: At most `n` calculations are being done, hence $O(n)$.
+    *Space Complexity*: $O(n)$ for recursive call stack, $O(n)$ for cache.
+    Overall $O(n)$.
+
