@@ -2,7 +2,7 @@
 
 ** ( ) [Longest Common Subsequence]{https://leetcode.com/problems/longest-common-subsequence/description/}
 
-   %TOPICS: Dynamic_Programming(Bottom-up)%
+   %TOPICS: Dynamic_Programming%
 
 *** (x) Approach One
 
@@ -14,14 +14,17 @@
     column accounts for the empty string, whose score will be 0.
 
     @code python
-    dp: List[List[int]] = [[0] * (len(text2) + 1) for _ in range(len(text1 ) + 1)]
+    def longestCommonSubsequence(self, text1: str, text2: str) -> int:
+        dp: List[List[int]] = [[0] * (len(text2) + 1) for _ in range(len(text1 ) + 1)]
 
-    for i in range(len(text1) - 1, -1, -1):
-      for j in range(len(text2) - 1, -1, -1):
-        if text1[i] == text2[j]:
-          dp[i][j] = 1 + dp[i + 1][j + 1]
-        else:
-          dp[i][j] = max(dp[i + 1][j], dp[i][j + 1])
+        for i in range(len(text1) - 1, -1, -1):
+            for j in range(len(text2) - 1, -1, -1):
+                if text1[i] == text2[j]:
+                    dp[i][j] = 1 + dp[i + 1][j + 1]
+                else:
+                    dp[i][j] = max(dp[i + 1][j], dp[i][j + 1])
+
+        return dp[0][0]
     @end
 
     *Time Complexity*: $O(m \times n)$
@@ -29,11 +32,76 @@
 
 ** ( ) [Longest Palindromic Subsequence]{https://leetcode.com/problems/longest-palindromic-subsequence/description/}
 
-   %TOPICS: Dynamic_Programming(Bottom-up)%
+   %TOPICS: Dynamic_Programming%
 
-*** ( ) Approach One
+*** (x) Approach One
 
-    *Time Complexity*:
-    *Space Complexity*:
+    This problem can be solved using the same approach as in [Longest Common
+    Subsequence]. If the string and its reverse is supplied to the LCS function
+    then it is guranteed that the longest palindromic subsequence will be
+    returned.
 
+*** (x) Approach Two
+
+    The problem can be visualized as a decision tree problem where at each
+    index (or pair of index) we check if there exists the same characters to
+    the left and right of the current index.
+
+    @code python
+    def longestPalindromeSubseq(self, s: str) -> int:
+        def dfs(i: int, j: int):
+            if (i < 0) or (j >= len(s)):
+                return 0
+
+            if s[i] == s[j]:
+                result = dfs(i - 1, j + 1)
+                length = 1 if i == j else 2
+                return length + result
+            else:
+                result = max(dfs(i - 1, j), dfs(i, j + 1))
+                return result
+
+        result = 0
+        for i in range(len(s)):
+            result = max(result, dfs(i, i), dfs(i, i + 1))
+
+        return result
+    @end
+
+    *Time Complexity*: This has a time complexity of $O(2^n)$.
+
+*** ( ) Approach Three
+
+    The time complexity of the previous approach can be improved by caching the
+    results of the subproblems.
+
+    @code python
+    def longestPalindromeSubseq(self, s: str) -> int:
+        cache = {}
+        def dfs(i: int, j: int):
+            if (i < 0) or (j >= len(s)):
+                return 0
+            # return if result exists in cache
+            if (i, j) in cache:
+                return cache[(i, j)]
+
+            if s[i] == s[j]:
+                result = dfs(i - 1, j + 1)
+                length = 1 if i == j else 2
+                cache[(i, j)] = length + result
+                return cache[(i, j)] # cache the result
+            else:
+                result = max(dfs(i - 1, j), dfs(i, j + 1))
+                cache[(i, j)] = result
+                return cache[(i, j)] # cache thre resutl
+
+        result = 0
+        for i in range(len(s)):
+            result = max(result, dfs(i, i), dfs(i, i + 1))
+
+        return result
+    @end
+
+    *Time Complexity*: This improves the time complexity form $O(2^n)$ to
+    $O(n^2)$.
 
