@@ -13,6 +13,14 @@
    This would have a time and space complexity of $O(m \times n)$ and a space
    complexity.
 
-** ( ) Longest Palindromic Subsequence
+** ( ) [Longest Palindromic Subsequence]{ }
+
+   %TOPICS: Dynamic_Programming%
+
+*** ( ) Approach One
+
+    *Time Complexity*:
+    *Space Complexity*:
 
 ** ( ) Longest Palindromic Subsequence after K Operations
+
