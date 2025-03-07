@@ -151,3 +151,48 @@
     *Space Complexity*: The size of the `dp` array is `len(s) + 1` by `len(s) +
     1`, which requires $O(n^2)$ space.
 
+** ( ) [House Robber]{https://leetcode.com/problems/house-robber/description/}
+
+   %TOPICS: Dynamic_Programming, Memoization, Tabulation%
+
+*** (x) Approach One
+
+    The problem can be visualized just like a decision problem; At each step we
+    can rob any house except the house adjacent to the house we are currently
+    at. It makes sense to rob any previous house of the same parity to the
+    house with relatively more money.
+
+    Example: For houses `[1, 2, 1, 1, 4, 10]`, if we want to rob the last house,
+    we may also rob the house at index 3 and index 1, to maximise the robbery.
+
+    We can spawn a recursive function at each index `i + 2 .. len(n) - 1`.
+
+    @code python
+    def rob(self, houses: List[int]) -> int:
+        n = len(houses)
+        def r(idx: int) -> int:
+            if idx >= n:
+                return 0
+            inter_result = 0
+            for i in range(idx + 2, n):
+                inter_result = max(inter_result, r(i))
+            result = inter_result + houses[idx]
+            return result
+        return max(r(0), r(1))
+    @end
+
+    The recurrence relation for the program can be expressed as:
+
+    @math
+    \[
+    T(\text{idx}) = \sum_{i=\text{idx}+2}^{n-1} T(i) + O(n)
+    \]
+    @end
+
+    *Time Complexity*: This gives us exponential time complexity of
+    approximately $O(2^n)$.
+    *Space Complexity*: Due to the for-loop in the recursive function, the
+    number of function invocations will be exponential (roughly
+    $O(2^n)$), in the worst case. The number of active calls on the stack at
+    any time will be $O(n)$.
+
