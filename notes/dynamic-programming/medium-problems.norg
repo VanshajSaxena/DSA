@@ -199,7 +199,7 @@
     $O(2^n)$), in the worst case. Whereas the number of active calls on
     the stack at any time will be $O(n)$.
 
-*** ( ) Approach Two (Memoization)
+*** (x) Approach Two (Memoization)
 
     @code python
     def rob(self, houses: List[int]) -> int:
@@ -220,11 +220,45 @@
 
         return max(r(0), r(1))
     @end
-    
+
+    This program iterates from index `idx + 2 .. n - 1` at each recursive
+    call.
 
     *Time Complexity*: Since each index is processed once, and the processing
     of an index takes $O(n)$ time (due to loop), the overall time complexity of
     the program is approximately $O(n^2)$.
     *Space Complexity*: The space complexity is still $O(n)$ due to the `cache`
     and the recursive call stack having $O(n)$ active calls at any time.
+
+*** (x) Approach Three (Optimized Memoization)
+
+    We don't need to iterate over all the indices from `idx + 2` to `n - 1`.
+    The problem can be thought of as mainly having two options when calculating
+    result for each index; whether to rob or not rob the current house.
+
+    - If we rob the current house, we can not rob the next house, but can rob
+      subsequent houses.
+    - If we do not rob the current house, we can rob the next house.
+
+    @code python
+    def rob(self, houses: List[int]) -> int:
+        n = len(houses)
+        cache = {}
+
+        def r(idx: int) -> int:
+            if idx >= n:
+                return 0
+            if idx in cache:
+                return cache[idx]
+            result = max((houses[idx] + r(idx + 2)), r(idx + 1))
+            cache[idx] = result
+            return result
+
+        return r(0)
+    @end
+
+    *Time Complexity*: Due to caching the result for any index is calculated at
+    most once, hence the time complexity will be $O(n)$.
+    *Space Complexity*: The space complexity will be $O(n)$ due to `cache` and
+    the recursive call stack.
 
