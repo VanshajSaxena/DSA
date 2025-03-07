@@ -253,6 +253,8 @@
         return r(0)
     @end
 
+    Here's the recurrence relation for the above program:
+
     @math
     \[
     r(i) =
@@ -285,6 +287,8 @@
         return dp[0]
     @end
 
+    Here's the recurrence relation for the above program:
+
     @math
     \[
     dp(i) =
@@ -295,3 +299,29 @@
     \]
     @end
 
+    *Time Complexity*: The time complexity is $O(n)$.
+    *Space Complexity*: The space complexity is $O(n)$, due to the `dp`
+    array.
+
+*** ( ) Approach Five (Optimized Tabulation)
+
+    The previous program can be space obtimezed by only keeping two already
+    computed variable. These two variables can be used to compute the current
+    iteration result.
+
+    @code python
+    def rob(self, houses: List[int]) -> int:
+        n = len(houses)
+
+        next1 = 0
+        next2 = 0
+        result = 0
+        for i in range(n - 1, -1, -1):
+            result = max(next1, next2 + houses[i])
+            next2 = next1
+            next1 = result
+        return result
+    @end
+
+    *Time Complexity*: The time complexity is $O(n)$.
+    *Space Complexity*: The space complexity is $O(1)$.
