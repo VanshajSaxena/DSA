@@ -101,7 +101,7 @@
 
 ** ( ) [Min Cost Climbing Stairs]{https://leetcode.com/problems/min-cost-climbing-stairs/description/}
 
-   %TOPICS: Dynamic_Programming%
+   %TOPICS: Dynamic_Programming, Memoization%
 
 *** (x) Approach One
 
@@ -127,8 +127,41 @@
         return min(minCost(0, 0, math.inf), minCost(1, 0, math.inf))
     @end
 
-    *Time Complexity*: This as an exponential time complexity of $O(2^n)$.
+    The above code calculates the min cost by spawning two calls at each step,
+    each unique call is calculated independently even if the same index is
+    reached with different accumulated costs. The branch carries its own
+    running total (`curr_cost`), and the comparison for `min_cost` occur at the
+    leaves. The `min_cost` is bubbled up through the call stack.
+
+    *Time Complexity*: This has an exponential time complexity of $O(2^n)$.
     *Space Complexity*: The maximum depth of the recursion stack is `n`, where
     we take all the single steps to the top, hence the space complexity is
     $O(n)$.
+
+*** (+) Approach Two (Memoization)
+
+    The previous approach can be improved by storing the results of the already
+    calculated steps.
+
+    @code python
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        cache = {}
+        def minCost(idx: int) -> int:
+            if idx >= len(cost):
+                return 0
+            if idx in cache:
+                return cache[idx]
+            cache[idx] = cost[idx] + min(minCost(idx + 1), minCost(idx + 2))
+            return cache[idx]
+        return min(minCost(0), minCost(1))
+    @end
+
+    Due to caching, one state is calculated only once. Instead of $2^n$ calls,
+    the number of unique states is limited to at most `n` (`n` being the length
+    of the staircase cost array).
+
+    *Time Complexity*: We calculate the cost of each step at most once, hence
+    time complexity is $O(n)$.
+    *Space Complexity*: The space complexity is still $O(n)$, because of the
+    recursion depth and the cache dictionary.
 
