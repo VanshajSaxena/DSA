@@ -1,6 +1,6 @@
 * ( ) Easy Problems
 
-** ( ) [Climbing Stairs]{https://leetcode.com/problems/climbing-stairs/description/}
+** (x) [Climbing Stairs]{https://leetcode.com/problems/climbing-stairs/description/}
 
    %TOPICS: Dynamic_Programming, Memoization, Tabulation%
 
@@ -98,3 +98,38 @@
 
     *Time Complexity*: $O(n)$
     *Space Complexity*: $O(1)$
+
+** ( ) [Min Cost Climbing Stairs]{https://leetcode.com/problems/min-cost-climbing-stairs/description/}
+
+   %TOPICS: Dynamic_Programming%
+
+*** (x) Approach One
+
+    The problem can be visualised as a decision problem, where at each step we
+    decide whether to take one step or two steps. At each step we add the cost
+    of the step to the running cost. At the end when the top of the staircase
+    is reached we look if we previously visited the top with a lower cost. We
+    choose the minimum of the running cost and the previous minimum cost.
+
+    @code python
+    import math
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        def minCost(idx, curr_cost, min_cost) -> int:
+            if idx == len(cost):
+                min_cost = min(curr_cost, min_cost)
+                return min_cost
+            curr_cost += cost[idx]
+            if idx + 1 <= len(cost):
+                min_cost = minCost(idx + 1, curr_cost, min_cost)
+            if idx + 2 <= len(cost):
+                min_cost = minCost(idx + 2, curr_cost, min_cost)
+                return min_cost
+            return min_cost
+        return min(minCost(0, 0, math.inf), minCost(1, 0, math.inf))
+    @end
+
+    *Time Complexity*: This as an exponential time complexity of $O(2^n)$.
+    *Space Complexity*: The maximum depth of the recursion stack is `n`, where
+    we take all the single steps to the top, hence the space complexity is
+    $O(n)$.
+
