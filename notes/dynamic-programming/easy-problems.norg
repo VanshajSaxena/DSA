@@ -2,7 +2,7 @@
 
 ** ( ) [Climbing Stairs]{https://leetcode.com/problems/climbing-stairs/description/}
 
-   %TOPICS: Dynamic_Programming%
+   %TOPICS: Dynamic_Programming, Memoization, Tabulation%
 
 *** (x) Approach One (Recursion)
 
