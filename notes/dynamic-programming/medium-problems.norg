@@ -190,6 +190,7 @@
 
     *Time Complexity*: This gives us exponential time complexity of
     approximately $O(2^n)$.
+
     *Space Complexity*: Due to the for-loop in the recursive function, the
     number of function invocations will be exponential (roughly
     $O(2^n)$), in the worst case. Whereas the number of active calls on
@@ -223,6 +224,7 @@
     *Time Complexity*: Since each index is processed once, and the processing
     of an index takes $O(n)$ time (due to loop), the overall time complexity of
     the program is approximately $O(n^2)$.
+
     *Space Complexity*: The space complexity is still $O(n)$ due to the `cache`
     and the recursive call stack having $O(n)$ active calls at any time.
 
@@ -267,6 +269,7 @@
 
     *Time Complexity*: Due to caching the result for any index is calculated at
     most once, hence the time complexity will be $O(n)$.
+
     *Space Complexity*: The space complexity will be $O(n)$ due to `cache` and
     the recursive call stack.
 
@@ -303,7 +306,7 @@
     *Space Complexity*: The space complexity is $O(n)$, due to the `dp`
     array.
 
-*** ( ) Approach Five (Optimized Tabulation)
+*** (x) Approach Five (Optimized Tabulation)
 
     The previous program can be space obtimezed by only keeping two already
     computed variable. These two variables can be used to compute the current
