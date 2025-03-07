@@ -2,7 +2,7 @@
 
 ** ( ) [Longest Common Subsequence]{https://leetcode.com/problems/longest-common-subsequence/description/}
 
-   %TOPICS: Dynamic_Programming%
+   %TOPICS: Dynamic_Programming, Tabulation%
 
 *** (x) Approach One
 
@@ -32,7 +32,7 @@
 
 ** ( ) [Longest Palindromic Subsequence]{https://leetcode.com/problems/longest-palindromic-subsequence/description/}
 
-   %TOPICS: Dynamic_Programming%
+   %TOPICS: Dynamic_Programming, Memoization, Tabulation%
 
 *** (x) Approach One
 
@@ -108,7 +108,7 @@
     The solution above still don't get accepted by LeetCode, maybe due to
     recursion.
 
-*** (!) Approach Four (Iterative Bottom-Up)
+*** (!) Approach Four (Tabulation)
 
     Rather than building the solutions to subproblems top-down, we can build
     them from the bottom and move up.
