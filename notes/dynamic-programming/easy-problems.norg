@@ -76,7 +76,7 @@
     *Time Complexity*: The loop runs `n` times, hence $O(n)$.
     *Space Complexity*: `dp` array of size `n + 1`, hence $O(n)$.
 
-*** (x) Approach Four (Optimised Tabulation)
+*** (x) Approach Four (Optimized Tabulation)
 
     This problem is just a special case of the Fibonacci sequence. The number
     of ways to reach the top of the staircase is the sum of the number of ways
@@ -165,7 +165,7 @@
     *Space Complexity*: The space complexity is still $O(n)$, because of the
     recursion depth and the cache dictionary.
 
-*** ( ) Approach Three (Tabulation)
+*** (x) Approach Three (Tabulation)
 
     The problem can be solved iteratively by building the solutions to the
     subproblems first, and then creating the solutions to the overall problem.
@@ -189,4 +189,27 @@
     *Time Complexity*: This has a time complexity of $O(n)$.
     *Space Complexity*: The space used by the `dp` array accounts for $O(n)$
     space complexity.
+
+*** (x) Approach Four (Optimized Tabulation)
+
+    We don't actually need the `dp` array to store every result we computed so
+    far. We can use only two variables to keep the two past calculated results
+    and compute the next one based on those.
+
+    @code python
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        n = len(cost)
+        prev1 = 0
+        prev2 = 0
+        for i in range(n - 1, -1, -1):
+            min_cost = cost[i] + min(prev1, prev2)
+            prev2 = prev1
+            prev1 = min_cost
+        return min(prev1, prev2)
+    @end
+
+    *Time Complexity*: $O(n)$.
+    *Space Complexity*: This only uses two variables to store the intermediate
+    results, so the overall space complexity is $O(1)$.
+
 
