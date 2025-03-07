@@ -257,7 +257,7 @@
     \[
     r(i) =
     \begin{cases}
-    \max\Bigl( \text{houses}[i] + r(i+2),\; r(i+1) \Bigr), & 0 \le i < n, \\
+    \max\Bigl(\text{houses}[i] + r(i+2),\; r(i+1) \Bigr), & 0 \le i < n, \\
     0, & i \ge n.
     \end{cases}
     \]
@@ -270,6 +270,9 @@
 
 *** (x) Approach Four (Tabulation)
 
+    This problem can be solved by iteratively tabulating the previously
+    computed results. Build from the ground up using the already known base
+    cases.
 
     @code python
     def rob(self, houses: List[int]) -> int:
@@ -286,8 +289,8 @@
     \[
     dp(i) =
     \begin{cases}
-    \max\Bigl( \text{dp(i+1)},\, dp(i+2) + \text{houses}[i]\Bigr ), & \text{if } 0 \le i < n, \\
-    0, & \text{if } i \ge n.
+    \max\Bigl(\text{dp(i+1)},\, dp(i+2) + \text{houses}[i]\Bigr), & 0 \le i < n, \\
+    0, & i \ge n.
     \end{cases}
     \]
     @end
