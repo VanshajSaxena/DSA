@@ -185,6 +185,9 @@
 
     @math
     \[
+    T(\text{idx}) = \sum_{i=\text{idx}+2}^{n-1} T(i) + O(n-\text{idx})
+    \]
+    \[
     T(\text{idx}) = \sum_{i=\text{idx}+2}^{n-1} T(i) + O(n)
     \]
     @end
@@ -193,6 +196,35 @@
     approximately $O(2^n)$.
     *Space Complexity*: Due to the for-loop in the recursive function, the
     number of function invocations will be exponential (roughly
-    $O(2^n)$), in the worst case. The number of active calls on the stack at
-    any time will be $O(n)$.
+    $O(2^n)$), in the worst case. Whereas the number of active calls on
+    the stack at any time will be $O(n)$.
+
+*** ( ) Approach Two (Memoization)
+
+    @code python
+    def rob(self, houses: List[int]) -> int:
+        n = len(houses)
+        cache = {}
+
+        def r(idx: int) -> int:
+            if idx >= n:
+                return 0
+            if idx in cache:
+                return cache[idx]
+            inter_result = 0
+            for i in range(idx + 2, n):
+                inter_result = max(inter_result, r(i))
+            result = inter_result + houses[idx]
+            cache[idx] = result
+            return result
+
+        return max(r(0), r(1))
+    @end
+    
+
+    *Time Complexity*: Since each index is processed once, and the processing
+    of an index takes $O(n)$ time (due to loop), the overall time complexity of
+    the program is approximately $O(n^2)$.
+    *Space Complexity*: The space complexity is still $O(n)$ due to the `cache`
+    and the recursive call stack having $O(n)$ active calls at any time.
 
