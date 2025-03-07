@@ -12,7 +12,7 @@
 
     @code python
     def climbStairs(self, n: int) -> int:
-      arr = [0] # lists are mutable
+        arr = [0] # lists are mutable
         def climb(idx, arr):
             if idx == n:
                 arr[0] += 1
@@ -22,6 +22,7 @@
             if n - idx >= 1:
                 climb(idx + 1, arr)
         climb(0, arr)
+        return arr[0]
     @end
 
     *Time Complexity*: Exponential time complexity of $O(2^n)$. This is highly
@@ -46,7 +47,7 @@
                 cache[idx] = result
             if n - idx >= 2:
                 result = climb(idx + 2, cache)
-                cache[idx] += result # notice the cache is update here
+                cache[idx] += result # notice the cache is updated here
             return cache[idx]
         return climb(0, cache)
     @end
@@ -56,3 +57,44 @@
     *Space Complexity*: $O(n)$ for recursive call stack, $O(n)$ for cache.
     Overall $O(n)$.
 
+*** (x) Approach Three (Tabulation)
+
+    The problem can be solved from the subproblems first, building the solution
+    from the bottom.
+
+    @code python
+    def climbStairs(self, n: int) -> int:
+        dp = [0] * (n + 1)
+        dp[n] = 1  # single way of reaching the top, while you're on the top
+        for i in range(n - 1, -1, -1):
+            dp[i] = dp[i + 1]
+            if i + 2 <= n:
+                dp[i] += dp[i + 2]  # if possible to take two steps
+        return dp[0]
+    @end
+
+    *Time Complexity*: The loop runs `n` times, hence $O(n)$.
+    *Space Complexity*: `dp` array of size `n + 1`, hence $O(n)$.
+
+*** (x) Approach Four (Optimised Tabulation)
+
+    This problem is just a special case of the Fibonacci sequence. The number
+    of ways to reach the top of the staircase is the sum of the number of ways
+    to reach the previous two steps.
+
+    @code python
+    def climbStairs(self, n: int) -> int:
+        if n <= 3:
+            return n
+        prev1 = 3
+        prev2 = 2
+        result = 0
+        for _ in range(n - 3):
+            result = prev1 + prev2
+            prev2 = prev1
+            prev1 = result
+        return result
+    @end
+
+    *Time Complexity*: $O(n)$
+    *Space Complexity*: $O(1)$
