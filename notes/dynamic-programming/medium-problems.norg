@@ -88,12 +88,11 @@
             if s[i] == s[j]:
                 result = dfs(i - 1, j + 1)
                 length = 1 if i == j else 2
-                cache[(i, j)] = length + result
-                return cache[(i, j)] # cache the result
+                cache[(i, j)] = length + result # cache the result
             else:
                 result = max(dfs(i - 1, j), dfs(i, j + 1))
-                cache[(i, j)] = result
-                return cache[(i, j)] # cache thre resutl
+                cache[(i, j)] = result # cache thre resutl
+            return cache[(i, j)]
 
         result = 0
         for i in range(len(s)):
@@ -104,9 +103,6 @@
 
     *Time Complexity*: This improves the time complexity form $O(2^n)$ to
     $O(n^2)$.
-
-    The solution above still don't get accepted by LeetCode, maybe due to
-    recursion.
 
 *** (!) Approach Four (Tabulation)
 
