@@ -123,7 +123,6 @@
                 min_cost = minCost(idx + 1, curr_cost, min_cost)
             if idx + 2 <= len(cost):
                 min_cost = minCost(idx + 2, curr_cost, min_cost)
-                return min_cost
             return min_cost
         return min(minCost(0, 0, math.inf), minCost(1, 0, math.inf))
     @end
