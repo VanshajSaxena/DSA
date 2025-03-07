@@ -253,8 +253,42 @@
         return r(0)
     @end
 
+    @math
+    \[
+    r(i) =
+    \begin{cases}
+    \max\Bigl( \text{houses}[i] + r(i+2),\; r(i+1) \Bigr), & 0 \le i < n, \\
+    0, & i \ge n.
+    \end{cases}
+    \]
+    @end
+
     *Time Complexity*: Due to caching the result for any index is calculated at
     most once, hence the time complexity will be $O(n)$.
     *Space Complexity*: The space complexity will be $O(n)$ due to `cache` and
     the recursive call stack.
+
+*** (x) Approach Four (Tabulation)
+
+
+    @code python
+    def rob(self, houses: List[int]) -> int:
+        n = len(houses)
+
+        dp = [0] * (n + 2)
+        for i in range(n - 1, -1, -1):
+            dp[i] = max(dp[i + 1], dp[i + 2] + houses[i])
+
+        return dp[0]
+    @end
+
+    @math
+    \[
+    dp(i) =
+    \begin{cases}
+    \max\Bigl( \text{dp(i+1)},\, dp(i+2) + \text{houses}[i]\Bigr ), & \text{if } 0 \le i < n, \\
+    0, & \text{if } i \ge n.
+    \end{cases}
+    \]
+    @end
 
