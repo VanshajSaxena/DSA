@@ -101,7 +101,7 @@
 
 ** ( ) [Min Cost Climbing Stairs]{https://leetcode.com/problems/min-cost-climbing-stairs/description/}
 
-   %TOPICS: Dynamic_Programming, Memoization%
+   %TOPICS: Dynamic_Programming, Memoization, Tabulation%
 
 *** (x) Approach One
 
@@ -164,4 +164,29 @@
     time complexity is $O(n)$.
     *Space Complexity*: The space complexity is still $O(n)$, because of the
     recursion depth and the cache dictionary.
+
+*** ( ) Approach Three (Tabulation)
+
+    The problem can be solved iteratively by building the solutions to the
+    subproblems first, and then creating the solutions to the overall problem.
+    The *recurrence relation* for this problem can be stated as:
+
+    @math
+    \[
+    dp[i] = cost[i] + min(dp[i + 1], dp[i + 2])
+    \]
+    @end
+
+    @code python
+    def minCostClimbingStairs(self, cost: List[int]) -> int:
+        n = len(cost)
+        dp = [0] * (n + 2)     
+        for i in range(n - 1, -1, -1):
+            dp[i] = cost[i] + min(dp[i + 1], dp[i + 2])
+        return min(dp[0], dp[1])
+    @end
+
+    *Time Complexity*: This has a time complexity of $O(n)$.
+    *Space Complexity*: The space used by the `dp` array accounts for $O(n)$
+    space complexity.
 
