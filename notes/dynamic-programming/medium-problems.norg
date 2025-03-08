@@ -331,7 +331,7 @@
 
 ** ( ) [Target Sum]{https://leetcode.com/problems/target-sum/description/}
 
-   %TOPICS: Dynamic_Programming, Backtracking%
+   %TOPICS: Dynamic_Programming, Memoization, Backtracking%
 
 *** (x) Approach One
 
@@ -359,7 +359,7 @@
     *Space Complexity*: At any moment the stack would have at most `n` calls,
     hence space complexity is $O(n)$
 
-*** (x) Approach Two
+*** (x) Approach Two (Memoization)
 
     The results to the unique states of `(idx, curr_sum)` can be cached into a
     dictionary, avoiding the $2^n$ explosion of recursive calls.
