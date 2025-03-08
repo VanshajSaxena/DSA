@@ -361,6 +361,9 @@
 
 *** (x) Approach Two
 
+    The results to the unique states of `(idx, curr_sum)` can be cached into a
+    dictionary, avoiding the $2^n$ explosion of recursive calls.
+
     @code python
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
         cache = {}
