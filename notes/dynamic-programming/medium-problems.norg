@@ -147,7 +147,7 @@
     *Space Complexity*: The size of the `dp` array is `len(s) + 1` by `len(s) +
     1`, which requires $O(n^2)$ space.
 
-** ( ) [House Robber]{https://leetcode.com/problems/house-robber/description/}
+** (x) [House Robber]{https://leetcode.com/problems/house-robber/description/}
 
    %TOPICS: Dynamic_Programming, Memoization, Tabulation%
 
@@ -328,3 +328,82 @@
 
     *Time Complexity*: The time complexity is $O(n)$.
     *Space Complexity*: The space complexity is $O(1)$.
+
+** ( ) [Target Sum]{https://leetcode.com/problems/target-sum/description/}
+
+   %TOPICS: Dynamic_Programming, Backtracking%
+
+*** (x) Approach One
+
+    The could simply be simulated can converted into a decision problem. We
+    take two decision each time. Either we add the number at the current index
+    or subtract it.
+
+    @code python
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        def findWays(idx: int, curr_sum: int) -> int:
+            if idx == len(nums):
+                return 1 if curr_sum == target else 0
+
+            result1 = findWays(idx + 1, curr_sum + nums[idx])
+
+            result2 = findWays(idx + 1, curr_sum - nums[idx])
+
+            return result1 + result2
+
+        result = findWays(0, 0)
+        return result
+    @end
+
+    *Time Complexity*: This has an inefficient time complexity of $O(2^n)$.
+    *Space Complexity*: At any moment the stack would have at most `n` calls,
+    hence space complexity is $O(n)$
+
+*** (x) Approach Two
+
+    @code python
+    def findTargetSumWays(self, nums: List[int], target: int) -> int:
+        cache = {}
+
+        def findWays(idx: int, curr_sum: int) -> int:
+            if idx == len(nums):
+                return 1 if curr_sum == target else 0
+
+            if (idx, curr_sum) in cache:
+                return cache[(idx, curr_sum)]
+
+            result1 = findWays(idx + 1, curr_sum + nums[idx])
+
+            result2 = findWays(idx + 1, curr_sum - nums[idx])
+
+            cache[(idx, curr_sum)] = result1 + result2
+
+            return result1 + result2
+
+        result = findWays(0, 0)
+        return result
+    
+    @end
+
+    *Time Complexity*: This memoized solution avoids the explosion of $2^n$ by
+    caching the results for unique states of `(idx, curr_sum)` The number of
+    states is determined by:
+
+    - The index `idx`, which can be from `0` to `n`, so there are $O(n)$ possibilities.
+    - The cumulative sum `curr_sum`, which, in the worst-case, can range from
+      $-S$ to $+S$, where $S$ is the sum of the absolute values of the numbers in
+      `nums`. This gives approximately $2 \times S+1$ possible values.
+
+    @math
+    \[
+    O(n \times (2S+1)) \approx O(n \times S)
+    \]
+    @end
+
+    Thus the overall time complexity is $\mathbf{O(n \times S)}$. This is a
+    pseudo-polynomial time complexity because it depends on the numerical value
+    $S$ rather than just the size of `n` of the input.
+
+    *Space Complexity*: The max recursion depth is still $O(n)$, but the
+    memoization dictionary can cache results upto $O(n \times S)$.
+
