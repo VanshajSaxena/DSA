@@ -151,3 +151,32 @@
    be the largest missing number. This has the time and space complexity of
    $O(n)$.
 
+** (x) [Remove Element]{https://leetcode.com/problems/remove-element/description/}
+
+   %TOPICS: Two_Pointer%
+
+*** (x) Approach
+
+    Instead of focusing on indices where element is equal to `val`, shift the
+    focus to only elements that should be in the array after the entire array
+    is processed.
+
+    By maintaining two indices, say `read` and `write` we can read all the
+    elements of the array incrementally one by one and whenever we find an
+    element not equal to `val` we can write to the `write` index and increment
+    it.
+
+    @code python
+    def removeElement(self, nums: List[int], val: int) -> int:
+        read = 0
+        write = 0
+        while read < len(nums):
+            if nums[read] != val:
+                nums[write] = nums[read]
+                write += 1
+            read += 1
+        return write
+    @end
+
+    *Time Complexity*: $O(n)$
+    *Space Complexity*: $O(1)$
