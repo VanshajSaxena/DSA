@@ -155,7 +155,7 @@
 
    %TOPICS: Two_Pointer%
 
-*** (x) Approach
+*** (x) Approach One
 
     Instead of focusing on indices where element is equal to `val`, shift the
     focus to only elements that should be in the array after the entire array
@@ -180,3 +180,29 @@
 
     *Time Complexity*: $O(n)$
     *Space Complexity*: $O(1)$
+
+** ( ) [Plus One]{https://leetcode.com/problems/plus-one/description/}
+
+   %TOPICS: Math%
+
+*** ( ) Approach One
+
+    Start from the right and maintain a carry initialized to `1`. Sum current
+    digit and carry, set carry to quotient of $\text{sum} / 10$ and update
+    current digit to $\text{sum} \bmod 10$.
+
+    @code python
+    def plusOne(self, digits: List[int]) -> List[int]:
+        carry = 1
+        for i in range(len(digits) - 1, -1, -1):
+            sum = carry + digits[i]
+            digits[i] = int(sum % 10)
+            carry = int(sum / 10)
+
+        if carry > 0:
+            digits = [carry] + digits
+        return digits
+    @end
+
+    *Time Complexity*: $O(n)$
+    *Space Complexity*: $O(n)$
