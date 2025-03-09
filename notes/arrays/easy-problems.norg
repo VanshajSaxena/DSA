@@ -232,7 +232,7 @@
     *Time Complexity*: $O(n)$
     *Space Complexity*: $O(n)$
 
-** ( ) [Merge Sorted Array]{https://leetcode.com/problems/merge-sorted-array/description/}
+** (x) [Merge Sorted Array]{https://leetcode.com/problems/merge-sorted-array/description/}
 
    %TOPICS: Two_Pointer%
 
@@ -248,7 +248,7 @@
     used. Each language has different space complexity for its library's sort
     function.
 
-*** ( ) Approach Two (Two Pointer)
+*** (x) Approach Two (Two Pointer)
 
     Start at the right of the `nums1` array using a `write` index, compare the
     elements of `nums1` and `nums2` backwards by placing pointers at `m -1` and
