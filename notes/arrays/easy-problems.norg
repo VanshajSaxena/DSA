@@ -209,7 +209,7 @@
 
 *** (x) Approach Two
 
-    This could be done in a single pass if we realize how digits array is
+    This could be done in a single pass if we realize how `digits` array is
     updated with incrementation of 1.
 
     @code python
@@ -231,3 +231,60 @@
 
     *Time Complexity*: $O(n)$
     *Space Complexity*: $O(n)$
+
+** ( ) [Merge Sorted Array]{https://leetcode.com/problems/merge-sorted-array/description/}
+
+   %TOPICS: Two_Pointer%
+
+*** (x) Approach One
+
+    The first approach could be to copy everything from `nums2` to `nums1` from
+    the back. As `nums1` already has the required size to accommodate all the
+    elements of both the arrays, we can fill everything from `nums2` to
+    `nums1`. Then, use the library's sort function.
+
+    *Time Complexity*: $O((m + n) \times \log{(m + n)})$
+    *Space Complexity*: The space complexity will be determined by the language
+    used. Each language has different space complexity for its library's sort
+    function.
+
+*** ( ) Approach Two (Two Pointer)
+
+    Start at the right of the `nums1` array using a `write` index, compare the
+    elements of `nums1` and `nums2` backwards by placing pointers at `m -1` and
+    `n - 1`. Place the element which is smaller to the `write` index and
+    decrement the `write` index as well as the written element's index. If the
+    values of both the indices match after comparing, write any element of
+    choice.
+
+    At the end, fill the remaining elements from the array which still has not
+    exhaused.
+
+    @code python
+    def merge(self, nums1: List[int], m: int, nums2: List[int], n: int) -> None:
+        idx1 = m - 1
+        idx2 = n - 1
+        write = m + n - 1
+        while idx1 > -1 and idx2 > -1:
+            if nums1[idx1] >= nums2[idx2]:
+                nums1[write] = nums1[idx1]
+                idx1 -= 1
+                write -= 1
+            else:
+                nums1[write] = nums2[idx2]
+                idx2 -= 1
+                write -= 1
+
+        while idx1 > -1:
+            nums1[write] = nums1[idx1]
+            idx1 -= 1
+            write -= 1
+
+        while idx2 > -1:
+            nums1[write] = nums2[idx2]
+            idx2 -= 1
+            write -= 1
+    @end
+
+    *Time Complexity*: $O(n + m)$
+    *Space Complexity*: $O(1)$
