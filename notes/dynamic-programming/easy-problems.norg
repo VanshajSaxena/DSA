@@ -211,5 +211,3 @@
     *Time Complexity*: $O(n)$.
     *Space Complexity*: This only uses two variables to store the intermediate
     results, so the overall space complexity is $O(1)$.
-
-
