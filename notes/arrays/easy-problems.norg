@@ -320,3 +320,66 @@
     Hence, it is not possible to improve on this algorithm in terms of
     asymptotic complexity.
 
+
+
+** ( ) [Pascal's Triangle II]{https://leetcode.com/problems/pascals-triangle-ii/description/}
+
+   %TOPICS: Combinatorics%
+
+*** (x) Approach One
+
+    Using the same approach as in [Pascal's Triangle], we can build the
+    `rowIndex` row iteratively but, improving on the space complexity by only
+    keeping the last row that we need in memory.
+
+    @code python
+    def generate(self, rowIndex: int) -> List[int]:
+        if rowIndex == 0:
+            return [1]
+        if rowIndex == 1:
+            return [1, 1]
+        new_row = []
+        last_row = [1, 1]
+        for i in range(2, rowIndex + 1):
+            new_row = [0] * (i + 1)
+            for j in range(i + 1):
+                left = last_row[j - 1] if j > 0 else 0
+                right = last_row[j] if j < len(last_row) else 0
+                new_row[j] = left + right
+            last_row = new_row
+
+        return new_row
+    @end
+
+    *Time Complexity*: The time complexity is $O(n^2)$, as we are computing
+    every row prior to `rowIndex` row to compute our required row.
+    *Space Complexity*: The space complexity is $O(n)$ considering the space
+    used by the output and the two rows in memory.
+
+*** ( ) Approach Two (Combinatorics)
+
+    There is a more efficient way to do it using Combinatorics. There is a
+    known way to compute the $k\text{th}$ row of Pascal's Triangle in
+    $\mathbf{O(n)}$ time using binomial coefficient formula.
+
+    @math
+    \[
+    C(n, k) = C(n, k - 1) \times \frac{n - k + 1}{k}
+    \]
+    @end
+
+    We can iteratively build each consecutive element of the $k\text{th}$ row
+    of the Pascal's Triangle.
+
+    @code python
+    def getRow(self, rowIndex: int) -> List[int]:
+        row = [1]
+        for k in range(1, rowIndex + 1):
+            row.append(row[-1] * (rowIndex - k + 1) // k)
+        return row
+    @end
+
+    Each iteration step is completed in $O(1)$ time.
+
+    *Time Complexity*: $O(n)$
+    *Space Complexity*: $O(n)$
