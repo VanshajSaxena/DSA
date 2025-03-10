@@ -30,7 +30,30 @@
 
     *Time Complexity*: The function process each element once, hence $O(n)$.
     *Space Complexity*: If we count only the extra space, the space complexity
-    is $O(\log{n})$ (the max depth of the recursive stack). But, if we also
-    count the output tree, the overall space complexity will be $O(n)$.
+    is $O(\log{n})$ (the max depth of the recursive call stack). But, if we
+    also count the output tree, the overall space complexity will be $O(n)$.
 
-   
+** (x) [Invert Binary Tree]{https://leetcode.com/problems/invert-binary-tree/description/}
+
+   %TOPICS: Binary_Tree%
+
+*** (x) Approach One
+
+    Swap the *references* of the left and the right subtrees recursively for
+    each node in the tree.
+
+    @code python
+    def invertTree(self, root: Optional[TreeNode]) -> Optional[TreeNode]:
+        if root is None:
+            return
+
+        root.left, root.right = root.right, root.left
+
+        self.invertTree(root.left)
+        self.invertTree(root.right)
+
+        return root
+    @end
+
+    *Time Complexity*: $O(n)$
+    *Space Complexity*: $O(\log{n})$

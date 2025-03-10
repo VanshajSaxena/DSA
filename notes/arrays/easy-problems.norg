@@ -315,7 +315,7 @@
     *Time Complexity*: $O(n^2)$
     *Space Complexity*: $O(n^2)$
 
-    This current implementation is efficient given that the output size is
+    The current implementation is efficient given that the output size is
     $O(n^2)$. Any algorithm must use at least this much of time and space.
     Hence, it is not possible to improve on this algorithm in terms of
     asymptotic complexity.

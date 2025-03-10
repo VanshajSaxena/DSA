@@ -335,8 +335,8 @@
 
 *** (x) Approach One
 
-    The could simply be simulated can converted into a decision problem. We
-    take two decision each time. Either we add the number at the current index
+    This could simply be simulated and converted into a decision problem. We
+    take two decisions each time. Either we add the number at the current index
     or subtract it.
 
     @code python
