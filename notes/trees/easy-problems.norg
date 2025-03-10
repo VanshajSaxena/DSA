@@ -1,0 +1,36 @@
+* Easy Problems
+
+** ( ) [Convert Sorted Array to Binary Search Tree]{https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/description/}
+
+   %TOPICS: Binary_Search_Tree%
+
+*** ( ) Approach One
+
+    Recursively pick the middle of the array, call it the root of the current
+    subtree, this will divide the array in two subarrays. Perform the same
+    operation on the subarrays. If the range closes (left surpasses right),
+    return null.
+
+    @code python
+    def sortedArrayToBST(self, nums: List[int]) -> Optional[TreeNode]:
+        n = len(nums)
+
+        def convert(left: int, right: int) -> Optional[TreeNode]:
+            if left > right:
+                return None
+            mid = (right + left) // 2
+            node = TreeNode(nums[mid])
+
+            node.left = convert(left, mid - 1)
+            node.right = convert(mid + 1, right)
+
+            return node
+        convert(0, n - 1)
+    @end
+
+    *Time Complexity*: The function process each element once, hence $O(n)$.
+    *Space Complexity*: If we count only the extra space, the space complexity
+    is $O(\log{n})$. But, if we also count the output tree, the overall space
+    complexity will be $O(n)$.
+
+   
