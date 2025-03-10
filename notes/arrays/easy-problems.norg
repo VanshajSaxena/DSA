@@ -322,7 +322,7 @@
 
 
 
-** ( ) [Pascal's Triangle II]{https://leetcode.com/problems/pascals-triangle-ii/description/}
+** (x) [Pascal's Triangle II]{https://leetcode.com/problems/pascals-triangle-ii/description/}
 
    %TOPICS: Combinatorics%
 
@@ -331,6 +331,8 @@
     Using the same approach as in [Pascal's Triangle], we can build the
     `rowIndex` row iteratively but, improving on the space complexity by only
     keeping the last row that we need in memory.
+
+    .image pascal-triangle-animated.gif
 
     @code python
     def generate(self, rowIndex: int) -> List[int]:
@@ -356,7 +358,7 @@
     *Space Complexity*: The space complexity is $O(n)$ considering the space
     used by the output and the two rows in memory.
 
-*** ( ) Approach Two (Combinatorics)
+*** (x) Approach Two (Combinatorics)
 
     There is a more efficient way to do it using Combinatorics. There is a
     known way to compute the $k\text{th}$ row of Pascal's Triangle in
