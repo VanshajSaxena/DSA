@@ -1,10 +1,10 @@
 * Easy Problems
 
-** ( ) [Convert Sorted Array to Binary Search Tree]{https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/description/}
+** (x) [Convert Sorted Array to Binary Search Tree]{https://leetcode.com/problems/convert-sorted-array-to-binary-search-tree/description/}
 
    %TOPICS: Binary_Search_Tree%
 
-*** ( ) Approach One
+*** (x) Approach One
 
     Recursively pick the middle of the array, call it the root of the current
     subtree, this will divide the array in two subarrays. Perform the same
@@ -30,7 +30,7 @@
 
     *Time Complexity*: The function process each element once, hence $O(n)$.
     *Space Complexity*: If we count only the extra space, the space complexity
-    is $O(\log{n})$. But, if we also count the output tree, the overall space
-    complexity will be $O(n)$.
+    is $O(\log{n})$ (the max depth of the recursive stack). But, if we also
+    count the output tree, the overall space complexity will be $O(n)$.
 
    
