@@ -120,3 +120,74 @@
     *Space Complexity*: Best case space complexity will be $O(\log{n})$,
     whereas the worst case time complexity will be $O(n)$.
 
+** (x) [Balanced Binary Tree]{https://leetcode.com/problems/balanced-binary-tree/description/}
+
+   %TOPICS: Binary_Tree%
+
+*** (x) Approach One
+
+    We can recursively visit every node in the tree (as in [Diameter of Binary
+    Tree]) and get the height of its left and right subtree, if at any point
+    the height difference gets more than one this means we got an unbalanced
+    binary tree.
+
+    @code python
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
+        # the balance function returns a tuple
+        def balance(node):
+            left = 0
+            left_balanced = True
+            if node.left:
+                left, left_balanced = balance(node.left)
+            right = 0
+            right_balanced = True
+            if node.right:
+                right, right_balanced = balance(node.right)
+            depth = 1 + max(left, right)
+            balanced = left_balanced and right_balanced # take AND
+            if abs(left - right) > 1: # check for difference
+                balanced = False
+            return (depth, balanced) # return tuple
+
+        if not root: # edge case
+            return True
+        _, balanced = balance(root)
+        return balanced
+    @end
+
+    *Time Complexity*: This program has $O(n)$ time complexity as we visit each
+    node at least once.
+    *Space Complexity*: This program worst case space complexity of $O(n)$ when
+    the tree is skewed and there is no early return. The average case space
+    complexity will be $O(\log{n})$.
+
+*** (x) Approach Two
+
+    We could use a *sentinel value* to denote the current state of the
+    recursive call tree. This sentinel value can resolve to `-1` when we find
+    any height-unbalanced tree and can be used to prevent any further
+    recursion.
+
+    @code python
+    def isBalanced(self, root: Optional[TreeNode]) -> bool:
+        def balance(node) -> int:
+            if not node:
+                return 0
+            left_height = balance(node.left)
+            if left_height == -1:
+                return -1
+            right_height = balance(node.right)
+            if right_height == -1:
+                return -1
+            if abs(left_height - right_height) > 1:
+                return -1
+            return 1 + max(left_height, right_height)
+        return balance(root) != -i
+    @end
+
+    *Time Complexity*: This program still has the worst case time complexity of
+    $O(n)$, but in cases where the tree is found to be unbalanced early we can
+    return early, and can avoid exploring large parts of the tree.
+    *Space Complexity*: Worst case space complexity is $O(n)$ for a skewed
+    tree.
+
