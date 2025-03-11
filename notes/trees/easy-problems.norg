@@ -57,3 +57,34 @@
 
     *Time Complexity*: $O(n)$
     *Space Complexity*: $O(\log{n})$
+
+** (x) [Maximum Depth of Binary Tree]{https://leetcode.com/problems/maximum-depth-of-binary-tree/description/}
+
+   %TOPICS: Binary_Tree%
+
+*** (x) Approach One
+
+    Recursively call the depth function for each subtree of the current tree
+    and add 1 to each branch call. Take the max of both the branches and return
+    the maxDepth.
+
+    @code python
+    def maxDepth(self, root: Optional[TreeNode]) -> int:
+        def depth(node):
+            if node is None:
+                return 0
+
+            left = 1 + depth(node.left)
+            right = 1 + depth(node.right)
+
+            maxDepth = max(left, right)
+            return maxDepth
+
+        return depth(root)
+    @end
+
+    *Time Complexity*: This will traverse all the nodes of the binary tree,
+    hence $O(n)$.
+    *Space Complexity*: The Best case time complexity will be
+    $O(\log{n})$ when the tree is balanced, whereas the worst case time
+    complexity will be $O(n)$ when the tree is skewed.
