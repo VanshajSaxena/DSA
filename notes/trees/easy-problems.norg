@@ -88,3 +88,30 @@
     *Space Complexity*: The best case time complexity will be
     $O(\log{n})$ when the tree is balanced, whereas the worst case time
     complexity will be $O(n)$ when the tree is skewed.
+
+** (x) [Diameter of Binary Tree]{https://leetcode.com/problems/diameter-of-binary-tree/description/}
+
+   %TOPICS: Binary_Tree%
+
+*** (x) Approach One
+
+    @code python
+    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        self.max_diameter = 0
+
+        def diameter(node) -> int:
+            if not node:
+                return 0
+            left = diameter(node.left)
+            right = diameter(node.right)
+            self.max_diameter = max(self.max_diameter, left + right)
+            return 1 + max(left, right)
+
+        diameter(root)
+        return self.max_diameter
+    @end
+
+    *Time Complexity*: $O(n)$
+    *Space Complexity*: Best case space complexity will be $O(\log{n})$,
+    whereas the worst case time complexity will be $O(n)$.
+
