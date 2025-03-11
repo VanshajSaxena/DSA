@@ -95,6 +95,11 @@
 
 *** (x) Approach One
 
+    We have two options to go around this problem, either we return a tuple of
+    `max_diameter` and `max(left, right)` or we maintain a global
+    `max_diameter` variable. In the solution below we maintain a global state
+    variable for simplicity.
+
     @code python
     def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
         self.max_diameter = 0
