@@ -64,9 +64,9 @@
 
 *** (x) Approach One
 
-    Recursively call the depth function for each subtree of the current tree
+    Recursively call the `depth` function for each subtree of the current tree
     and add 1 to each branch call. Take the max of both the branches and return
-    the maxDepth.
+    the `maxDepth`.
 
     @code python
     def maxDepth(self, root: Optional[TreeNode]) -> int:
@@ -85,6 +85,6 @@
 
     *Time Complexity*: This will traverse all the nodes of the binary tree,
     hence $O(n)$.
-    *Space Complexity*: The Best case time complexity will be
+    *Space Complexity*: The best case time complexity will be
     $O(\log{n})$ when the tree is balanced, whereas the worst case time
     complexity will be $O(n)$ when the tree is skewed.
