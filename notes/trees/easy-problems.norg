@@ -191,3 +191,57 @@
     *Space Complexity*: Worst case space complexity is $O(n)$ for a skewed
     tree.
 
+** (x) [Same Tree]{https://leetcode.com/problems/same-tree/description/}
+
+   %TOPICS: Binary Tree%
+
+*** (x) Approach One
+
+    Recursively check if the left and right subtrees are same.
+
+    @code python
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        def isSame(tree1: Optional[TreeNode], tree2: Optional[TreeNode]):
+            if not tree1 and not tree2:
+                return True
+            if not tree1 or not tree2:
+                return False
+            if tree1.val != tree2.val:
+                return False
+            else:
+                is_left_same = isSame(tree1.left, tree2.left)
+                is_right_same = isSame(tree1.right, tree2.right)
+                return is_left_same and is_right_same
+
+        return isSame(p, q)
+    @end
+
+    *Time Complexity*: $O(n)$
+    *Space Complexity*: Worst case $O(n)$, Average case $O(\log{n})$
+
+*** (x) Approach Two
+
+    This is the Iterative version of the previous approach, it tries to
+    eliminate the need of the recursion stack using an actual stack.
+
+    @code python
+    def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
+        stack = [(p, q)]
+        while stack:
+            node1, node2 = stack.pop()
+            if not node1 and not node2:
+                continue
+            if not node1 or not node2:
+                return False
+            if node1.val != node2.val:
+                return False
+
+            stack.append((node1.right, node2.right))
+            stack.append((node1.left, node2.left))
+
+        return True
+    @end
+
+    *Time Complexity*: $O(n)$
+    *Space Complexity*: Worst case $O(n)$, Average case $O(\log{n})$
+
