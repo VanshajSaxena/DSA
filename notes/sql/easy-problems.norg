@@ -1,0 +1,15 @@
+* Easy Problems
+
+** (x) [Recyclable and Low Fat Products]{https://leetcode.com/problems/recyclable-and-low-fat-products/description/}
+
+   %TOPICS: SELECT%
+
+*** (x) Approach One
+    Simply select the `product_id` column from `Products` table where
+    `low_fats` and `recyclable` column match the requirement.
+
+    @code sql
+    SELECT product_id
+    FROM Products
+    WHERE low_fats = 'Y' AND recyclable = 'Y'
+    @end
