@@ -87,3 +87,51 @@
     actual stack. Hence, $O(m \times n)$.
     *Space Complexity*: Still the worst case space complexity is $O(m \times n)$.
 
+*** (x) Approach Three (BFS)
+
+    The adjacent land cells can also be marked sunk as soon as we encounter
+    them, this can be done by visiting all the neighbor cells first. We can use
+    a double ended queue to process cells in a BFS manner.
+
+    *Unlike DFS, we need to immediately mark adjacent cells that we encounter
+    as sunk, not doing so will add the same cell multiple times into the queue,
+    as queue processes elements in FIFO manner, causing some cells to assume
+    that their adjacent cell hasn't been processed before and adding it to the
+    queue which was already in the queue due to some other cell.*
+
+    @code python
+    def numIslands(self, grid: List[List[str]]) -> int:
+        m = len(grid)
+        n = len(grid[0])
+        dirs = [1, 0, -1, 0, 1]
+
+        def sink(i: int, j: int):
+            queue = deque()
+            queue.append((i, j))
+            while queue:
+                i, j = queue.popleft()
+                grid[i][j] = "0"
+                for k in range(4):
+                    new_i = dirs[k] + i
+                    new_j = dirs[k + 1] + j
+                    if (
+                        new_i >= 0
+                        and new_j >= 0
+                        and new_i < m
+                        and new_j < n
+                        and grid[new_i][new_j] == "1"
+                    ):
+                        queue.append((new_i, new_j))
+                        # mark neighbor as visited immidiately
+                        grid[new_i][new_j] = "0"
+        count = 0
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == "1":
+                    sink(i, j)
+                    count += 1
+        return count
+    @end
+
+    *Time Complexity*: $O(m \times n)$
+    *Space Complexity*: $O(m \times n)$
