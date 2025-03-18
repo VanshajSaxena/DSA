@@ -45,3 +45,51 @@
     *Time Complexity*: $O(m + n)$
     *Space Complexity*: $O(m + n)$
     Where `m` and `n` are the length of `nums1` and `nums2` respectively.
+
+*** ( ) Approach Two
+
+    Another way of doing this is:
+    - Start *from the left* of `nums2` array.
+    - For each element that we encounter `num2` in `nums2`, we check if our
+      stack has elements smaller than the current element.
+    - We remove elements from the top of the stack that are smaller than the
+      current element and our current element becomes the next greater element
+      for each of the removed element.
+    - At the end of the loop, all the elements that exists in the map represens
+      the elements for which a next greater element exists. Whereas all the
+      elements that remain it the stack represents elements for which a next
+      greater element does not exist.
+    - We map each element in `nums1` to the corresponding next greater elements
+      by use of the map (if the element does not exist in the map, the next
+      greater element is `-1`).
+
+    This works because at any given moment our stack contains all the elements
+    for which we haven't found a next greater element yet. The stack is
+    *monotonically decreasing* (from bottom to top). If at any moment we find
+    an element in the array to be greater than the top of the stack, we have
+    found the next greater element for all the elements down to our stack until
+    we don't find an element that is greater than or equal to the current
+    number.
+
+    @code python
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        map = {}
+        stack = []
+        for num2 in nums2:
+            while stack and stack[-1] < num2:
+                map[stack.pop()] = num2
+            stack.append(num2)
+
+        # this is list comprehension with a predicate
+        result = [map[num1] if num1 in map else -1 for num1 in nums1]
+        return result
+    @end
+
+    Unlike the previous approach. In this approach, we only find next greater
+    element for the elements whose next greater element exists. And later
+    assign `-1` to those elements of `nums1` for which we don't find a next
+    greater element in the map.
+
+    *Time Complexity*: $O(m + n)$
+    *Space Complexity*: $O(m + n)$
+    Where `m` and `n` are the length of `nums1` and `nums2` respectively.
