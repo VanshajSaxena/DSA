@@ -135,3 +135,57 @@
 
     *Time Complexity*: $O(m \times n)$
     *Space Complexity*: $O(m \times n)$
+
+** ( ) [Rotting Oranges]{https://leetcode.com/problems/rotting-oranges/description/}
+
+   %TOPICS: Breadth_First_Search%
+
+*** ( ) Approach One
+
+    The idea is to collect all the rotten oranges into a queue in a single pass
+    and rot oranges in the queue in a breadth first search manner. For every
+    layer of the breadth first search a minute passes. Return the minutes if
+    all the fresh oranges rot utill the queue is emptied else return `-1`.
+
+    @code python
+    def orangesRotting(self, grid: List[List[int]]) -> int:
+        m = len(grid)
+        n = len(grid[0])
+        rotten = deque()
+        fresh = 0
+        for i in range(m):
+            for j in range(n):
+                if grid[i][j] == 2:
+                    rotten.append((i, j))
+                elif grid[i][j] == 1:
+                    fresh += 1
+
+        if fresh == 0:
+            return 0
+
+        minutes = 0
+        dir = [1, 0, -1, 0, 1]
+        while rotten and fresh > 0:
+            curr_rotten = len(rotten)
+            for _ in range(curr_rotten):
+                curr_i, curr_j = rotten.popleft()
+                for k in range(4):
+                    new_i = curr_i + dir[k]
+                    new_j = curr_j + dir[k + 1]
+                    if (
+                        new_i < m
+                        and new_j < n
+                        and new_i >= 0
+                        and new_j >= 0
+                        and grid[new_i][new_j] == 1
+                    ):
+                        grid[new_i][new_j] = 2
+                        fresh -= 1
+                        rotten.append((new_i, new_j))
+
+            minutes += 1
+        return minutes if fresh == 0 else -1
+    @end
+
+    *Time Complexity*: $O(m \times n)$
+    *Space Complexity*: $O(m \times n)$
