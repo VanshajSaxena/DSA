@@ -4,7 +4,7 @@
 
    %TOPICS: Monotonic_Stack%
 
-*** ( ) Approach One
+*** (x) Approach One
 
     The important thing to realize is that the given `nums1` array is a
     *subset* of `nums2` array. Which means if we compute next greater element
@@ -46,7 +46,7 @@
     *Space Complexity*: $O(m + n)$
     Where `m` and `n` are the length of `nums1` and `nums2` respectively.
 
-*** ( ) Approach Two
+*** (x) Approach Two
 
     Another way of doing this is:
     - Start *from the left* of `nums2` array.
