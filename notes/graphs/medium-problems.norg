@@ -136,11 +136,11 @@
     *Time Complexity*: $O(m \times n)$
     *Space Complexity*: $O(m \times n)$
 
-** ( ) [Rotting Oranges]{https://leetcode.com/problems/rotting-oranges/description/}
+** (x) [Rotting Oranges]{https://leetcode.com/problems/rotting-oranges/description/}
 
    %TOPICS: Breadth_First_Search%
 
-*** ( ) Approach One
+*** (x) Approach One
 
     The idea is to collect all the rotten oranges into a queue in a single pass
     and rot oranges in the queue in a breadth first search manner. For every
