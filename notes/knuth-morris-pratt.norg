@@ -1,7 +1,7 @@
 * Knuth Morris Pratt
 
   The KMP Algorithm is an algorithm that allows to search for patterns in a
-  string efficiently. This algorithm has a time complexity of `O(n + m)`, where
+  string efficiently. This algorithm has a time complexity of $O(n + m)$, where
   `n` is the length of the string to search in and `m` is the length of the
   pattern.
 
