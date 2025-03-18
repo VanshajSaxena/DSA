@@ -1,0 +1,47 @@
+* Easy Problems
+
+** ( ) [Next Greater Element I]{https://leetcode.com/problems/next-greater-element-i/description/}
+
+   %TOPICS: Monotonic_Stack%
+
+*** ( ) Approach One
+
+    The important thing to realize is that the given `nums1` array is a
+    *subset* of `nums2` array. Which means if we compute next greater element
+    for each of the element of `nums2` and put those into a map, then we are
+    guaranteed to find every element of `nums1` in the map.
+
+    One way to do this is to:
+    - Start *from the right* of the `nums2` array.
+    - For each element that we encounter `num2` in `nums2`, we check if the top
+      our stack has elements that are smaller than the current element.
+    - We remove every element from the top of our stack that is smaller than
+      the current element.
+    - The next greater element is `-1` if the stack is emptied, otherwise it is
+      the element at the top of the stack (store it in the map).
+    - Finally add the current element in the stack for future elements in the
+      left.
+
+    This works due to the nature stack keeps the already encountered elements,
+    each previously encountered element in the stack is kept in a *monotonically
+    decreasing* manner (form bottom to top).
+
+    @code python
+    def nextGreaterElement(self, nums1: List[int], nums2: List[int]) -> List[int]:
+        map = {}
+        stack = []
+        # notice we are iterating in reverse
+        for num2 in reversed(nums2):
+            while stack and stack[-1] < num2:
+                stack.pop()
+
+            map[num2] = stack[-1] if len(stack) > 0 else -1
+            stack.append(num2)
+
+        # create a new list from the map
+        return [map[num1] for num1 in nums1]
+    @end
+
+    *Time Complexity*: $O(m + n)$
+    *Space Complexity*: $O(m + n)$
+    Where `m` and `n` are the length of `nums1` and `nums2` respectively.
