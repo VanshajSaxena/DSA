@@ -59,4 +59,48 @@
    cause the least change in the value of the number when swapped with a number
    which is just greater than it, to the right of it.
 
+** ( ) [Set Matrix Zeros]{https://leetcode.com/problems/set-matrix-zeroes/description/}
 
+   %TOPICS: Matrix%
+
+*** (x) Approach One
+
+    @code python
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        m = len(matrix)
+        n = len(matrix[0])
+
+        zeros = set()
+        for i in range(m):
+            for j in range(n):
+                if matrix[i][j] == 0:
+                    zeros.add((i, j))
+
+        def markZeros(i, j):
+            # up
+            for up in range(i - 1, -1, -1):
+                matrix[up][j] = 0
+            # down
+            for down in range(i + 1, m):
+                matrix[down][j] = 0
+            # left
+            for left in range(j - 1, -1, -1):
+                matrix[i][left] = 0
+            # right
+            for right in range(j + 1, n):
+                matrix[i][right] = 0
+
+        while zeros:
+            i, j = zeros.pop()
+            markZeros(i, j)
+    @end
+
+    *Time Complexity*: We first scan for all zero-coordinates, in the worst
+    case it would collect $O(m \times n)$ zeros, when there are all zeros. Then
+    for each zero found, we run a helper function, which in the worst case
+    would contribute $O(m + n)$ time complexity.
+
+    Initial scan: $O(m \times n)$
+    Marking Zeros (worst case): $O((m \times n) \times (m + n))$
+
+    *Space Complexity*: In the worst case the set would use $O(m \times n)$ space.
