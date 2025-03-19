@@ -22,10 +22,52 @@
 
 ** (x) [Move Zeros]{https://leetcode.com/problems/move-zeroes/}
 
-   The trick to minimize the operations is to realize:
+*** (x) Approach One
 
-   All elements before the slow pointer can be non-zero, And all elements
-   between slow pointer and the current can be zeros.
+    The trick to minimize the operations is to realize:
+
+    All elements before the slow pointer can be non-zero, And all elements
+    between slow pointer and the current can be zeros.
+
+    @code java
+    public void moveZeroes(int[] nums) {
+      int j = 0;
+      for (int i = 0; i < nums.length; i++) {
+        if (nums[i] == 0) {
+          j++;
+        } else {
+          int temp = nums[i];
+          nums[i] = 0;
+          nums[i - j] = temp;
+        }
+      }
+    }
+    @end
+
+    *Time Complexity*: $O(n)$
+    *Space Complexity*: $O(1)$
+
+*** (x) Approach Two
+
+    A write pointer that only writes non-zero elements can be maintained to
+    sequentially to capture all the non-zero elements, and later the rest of
+    the array be filled with zeros.
+
+    @code python
+    def moveZeroes(self, nums: List[int]) -> None:
+        not_zero = 0
+        for i in range(len(nums)):
+            if nums[i] != 0:
+                nums[not_zero] = nums[i]
+                not_zero += 1
+
+        for j in range(not_zero, len(nums)):
+            nums[not_zero] = 0
+            not_zero += 1
+    @end
+
+    *Time Complexity*: $O(n)$
+    *Space Complexity*: $O(1)$
 
 ** (x) [Missing Number]{https://leetcode.com/problems/missing-number/description/}
 
