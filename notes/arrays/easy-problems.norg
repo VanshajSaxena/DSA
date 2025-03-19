@@ -96,18 +96,45 @@
 
 ** (x) [Sort Colors]{https://leetcode.com/problems/sort-colors/description/}
 
-   Use Dutch National Flag Algorithm, maintaining three pointers: low, mid, high.
+*** (x) Approach One
 
-   Put low and mid at beginning & high at the end.
+    Use Dutch National Flag Algorithm, maintaining three pointers: low, mid, high.
 
-   The idea behind the algorithm is to keep all the 0s before the low pointer, all
-   the 2s after the high pointer, and all the 1s between the low and high
-   pointers. The algorithm moves the mid pointer through the array, comparing
-   the value at each position with 1. If the value is 0, the element is swapped
-   with the element at the low pointer, and the low and mid pointers are
-   incremented. If the value is 2, the element is swapped with the element at
-   the high pointer, and the high pointer is decremented. If the value is 1,
-   the mid pointer is simply incremented.
+    Put low and mid at beginning & high at the end.
+
+    The idea behind the algorithm is to keep all the 0s before the low pointer,
+    all the 2s after the high pointer, and all the 1s between the low and high
+    pointers. The algorithm moves the mid pointer through the array, comparing
+    the value at each position with 1. If the value is 0, the element is swapped
+    with the element at the low pointer, and the low and mid pointers are
+    incremented. If the value is 2, the element is swapped with the element at
+    the high pointer, and the high pointer is decremented. If the value is 1,
+    the mid pointer is simply incremented.
+
+    @code python
+    def sortColors(self, nums: List[int]) -> None:
+        low, mid, high = 0, 0, len(nums) - 1
+
+        def swap(idx1, idx2):
+            nums[idx1], nums[idx2] = nums[idx2], nums[idx1]
+
+        while mid <= high:
+            if nums[mid] == 0:
+                # 0
+                swap(low, mid)
+                low += 1
+                mid += 1
+            elif nums[mid] == 1:
+                # 1
+                mid += 1
+            else:
+                # 2
+                swap(high, mid)
+                high -= 1
+    @end
+
+    *Time Complexity*: $O(n)$
+    *Space Complexity*: $O(1)$
 
 ** (x) [Majority Element]{https://leetcode.com/problems/majority-element/description/}
 

@@ -4,7 +4,7 @@
 
 *** (x) Approach One
 
-   The most optimal solution is to use Kadane's Algorithm. It is a
+    The most optimal solution is to use Kadane's Algorithm. It is a
     greedy/dynamic programming algorithm that can be used an on array. It is
     used to calculate the maximum sum subarray ending at a particular position
     and typically runs in $O(n)$ time. Basically, maintain a running sum
