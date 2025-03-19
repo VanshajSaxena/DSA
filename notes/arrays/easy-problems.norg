@@ -24,7 +24,29 @@
 
 *** (x) Approach One
 
-    The trick to minimize the operations is to realize:
+    A write pointer that only writes non-zero elements can be maintained to
+    sequentially to capture all the non-zero elements, and later the rest of
+    the array be filled with zeros.
+
+    @code python
+    def moveZeroes(self, nums: List[int]) -> None:
+        not_zero = 0
+        for i in range(len(nums)):
+            if nums[i] != 0:
+                nums[not_zero] = nums[i]
+                not_zero += 1
+
+        for j in range(not_zero, len(nums)):
+            nums[not_zero] = 0
+            not_zero += 1
+    @end
+
+    *Time Complexity*: $O(n)$
+    *Space Complexity*: $O(1)$
+
+*** (x) Approach Two
+
+    The trick to *minimize the operations* is to realize:
 
     All elements before the slow pointer can be non-zero, And all elements
     between slow pointer and the current can be zeros.
@@ -42,28 +64,6 @@
         }
       }
     }
-    @end
-
-    *Time Complexity*: $O(n)$
-    *Space Complexity*: $O(1)$
-
-*** (x) Approach Two
-
-    A write pointer that only writes non-zero elements can be maintained to
-    sequentially to capture all the non-zero elements, and later the rest of
-    the array be filled with zeros.
-
-    @code python
-    def moveZeroes(self, nums: List[int]) -> None:
-        not_zero = 0
-        for i in range(len(nums)):
-            if nums[i] != 0:
-                nums[not_zero] = nums[i]
-                not_zero += 1
-
-        for j in range(not_zero, len(nums)):
-            nums[not_zero] = 0
-            not_zero += 1
     @end
 
     *Time Complexity*: $O(n)$
