@@ -65,6 +65,10 @@
 
 *** (x) Approach One
 
+    This approach involves first collecting all the coordinates of zero
+    elements into additional memory, then for each found zero coordinate we set
+    zeros for its row and column using a helper function in second pass.
+
     @code python
     def setZeroes(self, matrix: List[List[int]]) -> None:
         m = len(matrix)
@@ -105,3 +109,58 @@
 
     Hence, the overall time complexity will be $O((m \times n) \times (m + n))$.
     *Space Complexity*: In the worst case the set would use $O(m \times n)$ space.
+
+*** (x) Approach Two
+
+    In this approach, we use the first row and first column as markers, i.e. if
+    we find an element to be zero in the matrix we mark the first row and first
+    column to zeros for this element. Before we do that we need to first
+    resolve if the first column and first row of the matrix contains a zero,
+    this step is needed because if we change the first row or column based on
+    some zero element we can not later determine which other elements were
+    needed to be marked as zero.
+
+    @code python
+    def setZeroes(self, matrix: List[List[int]]) -> None:
+        m = len(matrix)
+        n = len(matrix[0])
+
+        first_col_has_zeros = False
+        first_row_has_zeros = False
+
+        # check if first col contains zero
+        for i in range(m):
+            if matrix[i][0] == 0:
+                first_col_has_zeros = True
+
+        # check if first row contains zero
+        for j in range(n):
+            if matrix[0][j] == 0:
+                first_row_has_zeros = True
+
+        # mark first row and column to zero for any coordinate that has a zero
+        # element
+        for i in range(1, m):
+            for j in range(1, n):
+                if matrix[i][j] == 0:
+                    matrix[0][j] = 0
+                    matrix[i][0] = 0
+
+        # if the first row or column has a marked zero, the element needs to be
+        # zero
+        for i in range(1, m):
+            for j in range(1, n):
+                if matrix[0][j] == 0 or matrix[i][0] == 0:
+                    matrix[i][j] = 0
+
+        if first_col_has_zeros:
+            for i in range(m):
+                matrix[i][0] = 0
+
+        if first_row_has_zeros:
+            for j in range(n):
+                matrix[0][j] = 0
+    @end
+
+    *Time Complexity*: $O(m \times n)$
+    *Space Complexity*: $O(1)$
