@@ -2,14 +2,35 @@
 
 ** (x) [Maximum Subarray]{https://leetcode.com/problems/maximum-subarray/description/}
 
+*** (x) Approach One
+
    The most optimal solution is to use Kadane's Algorithm. It is a
-   greedy/dynamic programming algorithm that can be used an on array. It is
-   used to calculate the maximum sum subarray ending at a particular position
-   and typically runs in $O(n)$ time. Basically, maintain a running sum
-   variable that resets to zero if it gets less than zero (Because including a
-   negative number in the window will only decrease the overall sum). Also
-   maintain a global max variable that keeps track of the max sum encountered
-   so far for any window.
+    greedy/dynamic programming algorithm that can be used an on array. It is
+    used to calculate the maximum sum subarray ending at a particular position
+    and typically runs in $O(n)$ time. Basically, maintain a running sum
+    variable that resets to zero if it gets less than zero (Because including a
+    negative number in the window will only decrease the overall sum). Also
+    maintain a global max variable that keeps track of the max sum encountered
+    so far for any window.
+
+    @code python
+    def maxSubArray(self, nums: List[int]) -> int:
+        max_sum = nums[0]
+        curr_sum = 0
+
+        for num in nums:
+            if curr_sum < 0:
+                curr_sum = 0
+            curr_sum += num
+            max_sum = max(max_sum, curr_sum)
+
+        return max_sum
+    @end
+
+    *Time Complexity*: $O(n)$
+    *Space Complexity*: $O(1)$
+
+*** (x) Approach Two
 
    Another way is to use the sliding window technique. The idea is to have two
    pointers, `left` and `right` and a running sum that represents the sum of

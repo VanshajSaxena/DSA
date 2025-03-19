@@ -362,8 +362,6 @@
     Hence, it is not possible to improve on this algorithm in terms of
     asymptotic complexity.
 
-
-
 ** (x) [Pascal's Triangle II]{https://leetcode.com/problems/pascals-triangle-ii/description/}
 
    %TOPICS: Combinatorics%
