@@ -185,3 +185,40 @@
 
     *Time Complexity*: $O(m \times n)$
     *Space Complexity*: $O(1)$
+
+** (+) [Fruit Into Baskets]{https://leetcode.com/problems/fruit-into-baskets/description/}
+
+   %TOPICS: Sliding_Window%
+
+*** (+) Approach One
+
+    This is a classical sliding window problem, where we need to find the
+    length of the largest sub-array that contains at most 2 different elements.
+
+    To approach the problem we need to iteratively move towards the right while
+    ensuring that the window at most have two different elements (numbers) in
+    it. This can be done by using a frequency map and ensuring that the map
+    contains only two keys.
+
+    @code python
+    def totalFruit(self, trees: List[int]) -> int:
+        right_idx, left_idx, count = 0, 0, {} # right, left, map
+
+        for right_idx, fruit in enumerate(trees):
+            count[fruit] = count.get(fruit, 0) + 1
+            if len(count) > 2: # if the lenght of the map exceeds two
+                # decrement the frequency of the element at the left of the window
+                count[trees[left_idx]] -= 1
+                # remove the element if the frequency gets below 1
+                if count[trees[left_idx]] == 0:
+                    del count[trees[left_idx]]
+                # increment the left pointer
+                left_idx += 1
+
+        return right_idx - left_idx + 1
+    @end
+
+    *Time Complexity*: $O(n)$
+    *Space Complexity*: The map has 3 elements at most at a moment, hence the
+    overall space Complexity is $O(1)$.
+
